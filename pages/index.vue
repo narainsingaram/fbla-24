@@ -1,5 +1,5 @@
 <template>
-  <div data-theme="night">
+  <div data-theme="dark">
     <Header></Header>
     <SearchFilterBar @search="performSearch" />
     <PartnerList :partners="filteredPartners" />
