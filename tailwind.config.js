@@ -1,7 +1,7 @@
 module.exports = {
     plugins: [require("daisyui")],
     daisyui: {
-    themes: ["synthwave", "cupcake", "night"], // Set the theme to "synthwave"
+    themes: ["synthwave", "cupcake", "night", "retro"], // Set the theme to "synthwave"
     // ... other daisyui options
     },
     theme: {
