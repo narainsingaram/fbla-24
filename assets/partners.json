@@ -1,0 +1,242 @@
+[
+    {
+    "id": 1, 
+    "name": "Greater Atlanta Tamil Sangam",
+    "type": "Non-Profit Organization",
+    "contact": "John Doe",
+    "latitude": 33.748995, 
+    "longitude": -84.387982
+    },
+    {
+    "id": 2,
+    "name": "Community Organization B",
+    "type": "Community",
+    "contact": "Jane Smith",
+    "latitude": 33.755049,
+    "longitude": -84.394755
+    },
+    {
+    "id": 3,
+    "name": "Atlanta Rotary Club", 
+    "type": "Non-Profit Organization",
+    "contact": "John Smith",
+    "latitude": 33.743061,
+    "longitude": -84.391641
+    },
+    {
+    "id": 4,
+    "name": "Boys & Girls Clubs of Metro Atlanta",
+    "type": "Non-Profit Organization", 
+    "contact": "Jane Doe",
+    "latitude": 33.737117,
+    "longitude": -84.410087
+    },
+    {
+    "id": 5,
+    "name": "Atlanta Community Food Bank",
+    "type": "Non-Profit Organization",
+    "contact": "Mary Johnson",
+    "latitude": 33.72474,
+    "longitude": -84.470207
+    },
+    {
+    "id": 6, 
+    "name": "Atlanta Humane Society",
+    "type": "Non-Profit Organization",
+    "contact": "David Williams",
+    "latitude": 33.717982,
+    "longitude": -84.511979
+    },
+    {
+    "id": 7,
+    "name": "Atlanta Botanical Garden",
+    "type": "Non-Profit Organization",
+    "contact": "Elizabeth Brown",
+    "latitude": 33.791075, 
+    "longitude": -84.374947
+    },
+    {
+    "id": 8,
+    "name": "High Museum of Art",
+    "type": "Non-Profit Organization",
+    "contact": "Michael Jones",
+    "latitude": 33.780745,
+    "longitude": -84.388021
+    },
+    {
+    "id": 9,
+    "name": "Atlanta Symphony Orchestra",
+    "type": "Non-Profit Organization",
+    "contact": "Sarah Smith",
+    "latitude": 33.779421,
+    "longitude": -84.389228
+    },
+    {
+    "id": 10, 
+    "name": "Atlanta Braves",
+    "type": "Professional Sports Team",
+    "contact": "Brian Snitker",
+    "latitude": 33.736983,
+    "longitude": -84.389567
+    },
+    {
+    "id": 11,
+    "name": "Atlanta Falcons",
+    "type": "Professional Sports Team", 
+    "contact": "Arthur Smith",
+    "latitude": 33.757798,
+    "longitude": -84.401069
+    },
+    {
+    "id": 12,
+    "name": "Atlanta Hawks",
+    "type": "Professional Sports Team",
+    "contact": "Travis Schlenk",
+    "latitude": 33.757658,
+    "longitude": -84.396743
+    },
+    {
+    "id": 13,
+    "name": "Atlanta United FC",
+    "type": "Professional Sports Team",
+    "contact": "Gabriel Heinze",
+    "latitude": 33.755951,
+    "longitude": -84.401485
+    },
+    {
+    "id": 14,
+    "name": "The Coca-Cola Company",
+    "type": "Company",
+    "contact": "James Quincey",
+    "latitude": 33.762909,
+    "longitude": -84.390205
+    },
+    {
+    "id": 15,
+    "name": "The Home Depot",
+    "type": "Company",
+    "contact": "Craig Menear",
+    "latitude": 33.842125,
+    "longitude": -84.317008
+    },
+    {
+    "id": 16,
+    "name": "Waffle House",
+    "type": "Company",
+    "contact": "Patty Cobb", 
+    "latitude": 33.748154,
+    "longitude": -84.386633
+    },
+    {
+    "id": 17,
+    "name": "Chick-fil-A",
+    "type": "Company",
+    "contact": "Dan Cathy",
+    "latitude": 33.762909,
+    "longitude": -84.390205
+    },
+    {
+    "id": 18,
+    "name": "Coca-Cola Roxy Theatre", 
+    "type": "Venue",
+    "contact": "Troy Carter",
+    "latitude": 33.771576,
+    "longitude": -84.396743
+    },
+    {
+    "id": 19,
+    "name": "Fox Theatre",
+    "type": "Venue",
+    "contact": "Bill Caruso",
+    "latitude": 33.776211,
+    "longitude": -84.390367
+    },
+    {
+    "id": 20,
+    "name": "Mercedes-Benz Stadium",
+    "type": "Venue",
+    "contact": "Tom Benson",
+    "latitude": 33.756373, 
+    "longitude": -84.401142
+    },
+    {
+    "id": 21, 
+    "name": "Georgia Aquarium",
+    "type": "Attraction",
+    "contact": "Randall Bolton",
+    "latitude": 33.762909,
+    "longitude": -84.390205
+    },
+    {
+    "id": 22,
+    "name": "Zoo Atlanta",
+    "type": "Attraction",
+    "contact": "Samantha Turner",
+    "latitude": 33.734917,
+    "longitude": -84.384186
+    },
+    {
+    "id": 23, 
+    "name": "Piedmont Park",
+    "type": "Park",
+    "contact": "Alex Roberts",
+    "latitude": 33.78427,
+    "longitude": -84.371103
+    },
+    {
+    "id": 24,
+    "name": "Martin Luther King Jr. National Historic Site",
+    "type": "Historic Site",
+    "contact": "Karen Lewis",
+    "latitude": 33.753906,
+    "longitude": -84.373108
+    },
+    {
+    "id": 25,
+    "name": "Emory University",
+    "type": "Educational Institution",
+    "contact": "John Anderson",
+    "latitude": 33.792625,
+    "longitude": -84.323525
+    },
+    {
+    "id": 26, 
+    "name": "Georgia State University", 
+    "type": "Educational Institution",
+    "contact": "Emily Garcia",
+    "latitude": 33.751498,
+    "longitude": -84.387924
+    },
+    {
+    "id": 27,
+    "name": "Georgia Institute of Technology",
+    "type": "Educational Institution",
+    "contact": "Robert Clark",
+    "latitude": 33.775811,
+    "longitude": -84.396729
+    },
+    {
+    "id": 28,
+    "name": "Atlanta Public Schools",
+    "type": "Educational Institution",
+    "contact": "Lisa Johnson", 
+    "latitude": 33.753082, 
+    "longitude": -84.391641
+    },
+    {
+    "id": 29,
+    "name": "The Carter Center",
+    "type": "Non-Profit Organization",
+    "contact": "Jessica Adams",
+    "latitude": 33.77493,
+    "longitude": -84.373108
+    },
+    {
+    "id": 30,
+    "name": "Atlanta History Center",
+    "type": "Museum",
+    "contact": "Mark Thompson",
+    "latitude": 33.841525,
+    "longitude": -84.363984
+    }
+]
