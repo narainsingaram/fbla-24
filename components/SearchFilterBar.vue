@@ -1,6 +1,6 @@
 <template>
   <div class="search-filter-bar flex flex-col items-center w-full"> <!-- Added w-full to make the container span the entire page -->
-    <div class="search-input-wrapper relative w-full my-4"> <!-- Changed w-80 to w-full -->
+    <div class="search-input-wrapper relative w-full my-4">
       <div class="input-icon absolute inset-y-0 left-3 flex items-center">
     <svg
       fill="none"
