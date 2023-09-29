@@ -1,6 +1,6 @@
 <template>
-  <div class="search-filter-bar flex flex-col items-center">
-    <div class="search-input-wrapper relative w-80 my-4">
+  <div class="search-filter-bar flex flex-col items-center w-full"> <!-- Added w-full to make the container span the entire page -->
+    <div class="search-input-wrapper relative w-full my-4"> <!-- Changed w-80 to w-full -->
       <div class="input-icon absolute inset-y-0 left-3 flex items-center">
     <svg
       fill="none"
@@ -19,14 +19,16 @@
     </svg>
       </div>
       <input
-        v-model="searchQuery"
+       v-model="searchQuery"
         @input="handleSearch"
         @focus="showSuggestions = true"
         @blur="hideSuggestions"
         type="text"
         placeholder="Search for Businesses"
-        class="input bg-neutral-focus transition hover:input-primary w-full max-w-xs rounded-full pl-10"
+        class="input bg-neutral-focus transition hover:input-primary w-full rounded-full pl-10"
       />
+      />
+      
       <ul v-if="showSuggestions" class="my-4 autocomplete-list absolute w-full bg-neutral-focus rounded-2xl shadow-[rgba(7,_65,_210,_0.1)_0px_9px_30px]">
         <li
           v-for="suggestion in autocompleteSuggestions"
