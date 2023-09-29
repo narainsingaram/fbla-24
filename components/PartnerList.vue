@@ -153,9 +153,7 @@ export default {
   data() {
     return {
       viewMode: 'grid',
-      currentPage: 1,
-      itemsPerPage: 6, // Adjust as needed
-      maps: {} // Use an object to store individual maps
+      
     };
   },
   computed: {
