@@ -31,92 +31,49 @@
     </button>
       
     </div>
-
-    <ul v-if="viewMode === 'grid'" class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-      <li v-for="partner in partners" :key="partner.id" class="rounded-xl bg-base-300 p-4">
-        <!-- Content for Grid View -->
-        <h3 class="text-2xl text-base-content font-semibold">{{ partner.name }}</h3>
-        <div class="mt-2 text-sm">
-          <img class="rounded-xl" :src="partner.image">
-          <p class="">ID: {{ partner.id }}</p>
-          <p class="text-base-content mt-2">Type: {{ partner.type }}</p>
-          <p class="text-base-content">Contact: {{ partner.contact }}</p>
-          <p class="text-base-content">Latitude: {{ partner.latitude }}</p>
-          <p class="text-bases-content">Longitude: {{ partner.longitude }}</p>
-          <div class="map-container">
-            <div :id="'map_' + partner.id" class="h-64"></div>
+    
+      <ul v-if="viewMode === 'grid'" class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <li v-for="partner in partners" :key="partner.id" class="rounded-xl bg-base-300 p-4">
+          <!-- Content for Grid View -->
+          <h3 class="text-2xl text-base-content font-semibold">{{ partner.name }}</h3>
+          <div class="mt-2 text-sm">
+            <p class="text-neutral-content mt-2">Type: {{ partner.type }}</p>
+            <p class="text-neutral-content">Contact: {{ partner.contact }}</p>
+            <p class="text-neutral-content">Latitude: {{ partner.latitude }}</p>
+            <p class="text-neutral-content">Longitude: {{ partner.longitude }}</p>
           </div>
-        </div>
-        <a :href="'#my_modal_' + partner.id" class="btn btn-primary my-6 lowercase mr-2">View in Detail</a>
-        <button @click="exportPartner(partner)" class="btn btn-secondary ml-2 lowercase">
-          Export
-          <div class="badge badge-accent">beta</div>
-        </button>        
-        <section>
-          <div class="badge badge-info gap-2 mx-2">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              class="inline-block w-4 h-4 stroke-current"
-            >
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-            {{ partner.type }}
-          </div>
-          <div class="badge badge-success gap-2 mx-2">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              class="inline-block w-4 h-4 stroke-current"
-            >
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-            {{ partner.contact }}
-          </div>
-          <div class="badge badge-warning gap-2 mx-2">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              class="inline-block w-4 h-4 stroke-current"
-            >
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-            {{ partner.latitude }}
-          </div>
-          <div class="badge badge-error gap-2 mx-2 mt-2">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              class="inline-block w-4 h-4 stroke-current"
-            >
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-            {{ partner.longitude }}
-          </div>
-        </section>
-        <!-- Modal for this grid item -->
-        <div :id="'my_modal_' + partner.id" class="modal flex items-center justify-center bg-black bg-opacity-50">
-          <div class="modal-box bg-white p-8 rounded-lg shadow-lg">
-            <h3 class="font-bold text-2xl mb-4">Business: {{ partner.name }}</h3>
-            <p class="py-2">Type: {{ partner.type }}</p>
-            <p class="py-2">Description: {{ partner.description }}</p>
-            <p class="py-2">Contact: {{ partner.contact }}</p>
-            <p class="py-2">Latitude: {{ partner.latitude }}</p>
-            <p class="py-2">Longitude: {{ partner.longitude }}</p>
-            <h4 class="py-2 text-2xl">Any Questions?</h4>
-            <FeedbackAi></FeedbackAi>
-            <div class="modal-action">
-              <a href="#" class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">x</a>
+          <a :href="'#my_modal_' + partner.id" class="btn btn-primary my-6 lowercase">View in Detail</a>
+            <section>
+            <div class="badge badge-info gap-2 mx-2">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-4 h-4 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+              {{ partner.type }}
+            </div>
+            <div class="badge badge-success gap-2 mx-2">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-4 h-4 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+              {{ partner.contact }}
+            </div>
+            <div class="badge badge-warning gap-2 mx-2">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-4 h-4 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+              {{ partner.latitude }}
+            </div>
+            <div class="badge badge-error gap-2 mx-2 mt-2">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-4 h-4 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+              {{ partner.longitude }}
+            </div>
+          </section>
+          <!-- Modal for this grid item -->
+          <div class="modal" :id="'my_modal_' + partner.id">
+            <div class="modal-box">
+              <h3 class="font-bold text-lg">Business: {{ partner.name }}</h3>
+              <p class="py-4">Contact: {{ partner.contact }}</p>
+              <div class="modal-action">
+                <a href="#" class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">x</a>
+              </div>
             </div>
           </div>
-        </div>
-      </li>
-    </ul>
-
+        </li>
+      </ul>
+      
     <ul v-else-if="viewMode === 'list'" class="space-y-4">
       <li v-for="partner in partners" :key="partner.id" class="bg-blue-100 rounded-lg shadow-md p-4">
         <!-- Content for List View -->
