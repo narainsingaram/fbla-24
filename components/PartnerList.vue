@@ -16,8 +16,21 @@
         <p class="text-neutral-content">Contact: {{ partner.contact }}</p>
         <p class="text-neutral-content">Latitude: {{ partner.latitude }}</p>
         <p class="text-neutral-content">Longitude: {{ partner.longitude }}</p>
+        <a :href="'#my_modal_' + partner.id" class="btn">Open Modal</a>
+        
+        <!-- Modal for this grid item -->
+        <div class="modal" :id="'my_modal_' + partner.id">
+          <div class="modal-box">
+            <h3 class="font-bold text-lg">Business: {{ partner.name }}</h3>
+            <p class="py-4">Contact: {{ partner.contact }}</p>
+            <div class="modal-action">
+              <a href="#" class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">x</a>
+            </div>
+          </div>
+        </div>
       </li>
     </ul>
+    
     <ul v-else-if="viewMode === 'list'" class="space-y-4">
       <li v-for="partner in partners" :key="partner.id" class="bg-white rounded-lg shadow-md p-4">
         <!-- Content for List View -->

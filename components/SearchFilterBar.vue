@@ -9,7 +9,7 @@
         @blur="hideSuggestions"
         type="text"
         placeholder="Search for Businesses"
-        class="input bg-neutral-focus transition hover:input-primary w-full max-w-xs rounded-full pl-4 pr-10"
+        class="input bg-neutral-focus transition w-full max-w-xs rounded-full pl-4 pr-10"
       />
       <div class="input-icon absolute inset-y-0 right-3 flex items-center">
         <svg
