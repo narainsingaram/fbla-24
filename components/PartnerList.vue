@@ -11,12 +11,14 @@
     <ul v-if="viewMode === 'grid'" class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
       <li v-for="partner in partners" :key="partner.id" class="rounded-xl bg-base-300 p-4">
         <!-- Content for Grid View -->
-        <h3 class="text-xl text-base-content font-semibold">{{ partner.name }}</h3>
-        <p class="text-neutral-content mt-2">Type: {{ partner.type }}</p>
-        <p class="text-neutral-content">Contact: {{ partner.contact }}</p>
-        <p class="text-neutral-content">Latitude: {{ partner.latitude }}</p>
-        <p class="text-neutral-content">Longitude: {{ partner.longitude }}</p>
-        <a :href="'#my_modal_' + partner.id" class="btn">Open Modal</a>
+        <h3 class="text-2xl text-base-content font-semibold">{{ partner.name }}</h3>
+        <div class="mt-2 text-md mb-4">
+          <p class="text-neutral-content mt-2">Type: {{ partner.type }}</p>
+          <p class="text-neutral-content">Contact: {{ partner.contact }}</p>
+          <p class="text-neutral-content">Latitude: {{ partner.latitude }}</p>
+          <p class="text-neutral-content">Longitude: {{ partner.longitude }}</p>
+        </div>
+        <a :href="'#my_modal_' + partner.id" class="btn btn-primary mt-2 lowercase">View in Detail</a>
         
         <!-- Modal for this grid item -->
         <div class="modal" :id="'my_modal_' + partner.id">
