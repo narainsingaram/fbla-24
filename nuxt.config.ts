@@ -4,7 +4,6 @@ export default defineNuxtConfig({
     modules: [
     "@nuxtjs/tailwindcss",
     '@nuxtjs/google-fonts',
-    ["nuxt-chatgpt"],
     ],
     googleFonts: {
     families: {
