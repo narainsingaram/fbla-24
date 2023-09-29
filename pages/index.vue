@@ -1,6 +1,7 @@
 <template>
-  <div data-theme="night">
+  <div data-theme="dark">
     <Header></Header>
+    <AiChat></AiChat>
     <SearchFilterBar @search="performSearch" />
     <PartnerList :partners="filteredPartners" />
   </div>

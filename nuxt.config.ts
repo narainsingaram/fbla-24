@@ -4,7 +4,6 @@ export default defineNuxtConfig({
     modules: [
     "@nuxtjs/tailwindcss",
     '@nuxtjs/google-fonts',
-    ["nuxt-chatgpt"],
     ],
     googleFonts: {
     families: {
@@ -14,8 +13,5 @@ export default defineNuxtConfig({
         'Josefin+Sans': true,
         'IBM+Plex+Sans': true,
     },
-    },
-    chatgpt: {
-    apiKey: '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'
     },
 })
