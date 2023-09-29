@@ -12,8 +12,11 @@
         </ul>
       </div>
     </div>
-    <div class="navbar-center">
-      <a class="btn btn-ghost normal-case text-xl">Nexus Connect</a>
+    <div class="navbar-center flex items-center">
+      <a class="btn btn-ghost normal-case">
+        <img class="w-12 h-12" src="../assets/logo.png" alt="Logo"/> 
+        <span class="text-2xl space-x-4 mb-0.5">Nexus Connect</span>
+      </a>
     </div>
     <div class="navbar-end">
       <button class="btn btn-ghost btn-circle">

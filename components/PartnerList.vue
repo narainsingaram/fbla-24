@@ -122,7 +122,8 @@ export default {
   },
   data() {
     return {
-      viewMode: 'grid'
+      viewMode: 'grid',
+      
     };
   },
   methods: {
