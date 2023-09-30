@@ -1,6 +1,6 @@
 <template>
-  <div class="search-filter-bar flex flex-col items-center">
-    <div class="search-input-wrapper relative w-96 mx-auto my-4">
+  <div class="search-filter-bar flex flex-col items-center w-full"> <!-- Added w-full to make the container span the entire page -->
+    <div class="search-input-wrapper relative w-full my-4"> <!-- Changed w-80 to w-full -->
       <input
         id="search"
         v-model="searchQuery"
@@ -9,7 +9,7 @@
         @blur="hideSuggestions"
         type="text"
         placeholder="Search for Businesses"
-        class="input bg-neutral-content transition w-full rounded-full pl-4 pr-10 mx-auto"
+        class="input bg-neutral-focus transition w-full rounded-full pl-4 pr-10 mx-auto"
       />
       <div class="input-icon absolute inset-y-0 right-0 flex items-center">
         <svg
