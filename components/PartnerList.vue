@@ -12,7 +12,6 @@
       class="transition-transform transform hover:rounded-xl hover:scale-110 hover:bg-indigo-200 hover:text-white hover:underline">
         <img src="@/assets/list.png" class="rounded-xl">
       </button>
-      <button @click="changeView('card')" :class="{ 'text-indigo-500 font-semibold underline': viewMode === 'card' }">Card</button>
       <button @click="changeView('table')" :class="{ 'text-indigo-500 font-semibold underline': viewMode === 'table' }">Table</button>
     </div>
     
@@ -68,30 +67,6 @@
         <h3 class="text-xl text-black font-semibold">{{ partner.name }}</h3>
         <p class="text-gray-600">Type: {{ partner.type }}</p>
         <p class="text-gray-600">Contact: {{ partner.contact }}</p>
-      </li>
-    </ul>
-    <ul v-else-if="viewMode === 'card'" class="space-y-4">
-      <li v-for="partner in partners" :key="partner.id" class="bg-white border rounded-xl shadow-sm sm:flex dark:bg-gray-800 dark:border-gray-700 dark:shadow-slate-700/[.7]">
-        <div class="flex-shrink-0 relative w-full rounded-t-xl overflow-hidden pt-[40%] sm:rounded-l-xl sm:max-w-[15rem] md:rounded-tr-none md:max-w-xs">
-          <!-- Image -->
-          <img class="w-full h-full absolute top-0 left-0 object-cover" :src="partner.imageSrc" :alt="partner.name">
-        </div>
-        <div class="flex flex-wrap">
-          <div class="p-4 flex flex-col h-full sm:p-7">
-            <!-- Content for Card View -->
-            <h3 class="text-lg font-bold text-gray-800 dark:text-white">
-              {{ partner.name }}
-            </h3>
-            <p class="mt-1 text-gray-800 dark:text-gray-400">
-              {{ partner.description }}
-            </p>
-            <div class="mt-5 sm:mt-auto">
-              <p class="text-xs text-gray-500 dark:text-gray-500">
-                Last updated 5 mins ago
-              </p>
-            </div>
-          </div>
-        </div>
       </li>
     </ul>
     <!-- Table view -->
