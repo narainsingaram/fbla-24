@@ -26,7 +26,11 @@
             <p class="text-neutral-content">Latitude: {{ partner.latitude }}</p>
             <p class="text-neutral-content">Longitude: {{ partner.longitude }}</p>
           </div>
-          <a :href="'#my_modal_' + partner.id" class="btn btn-primary my-6 lowercase">View in Detail</a>
+          <a :href="'#my_modal_' + partner.id" class="btn btn-primary my-6 lowercase mr-2">View in Detail</a>
+          <button class="btn btn-secondary ml-2 lowercase">
+            Export
+            <div class="badge badge-accent">beta</div>
+          </button>
             <section>
             <div class="badge badge-info gap-2 mx-2">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-4 h-4 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
