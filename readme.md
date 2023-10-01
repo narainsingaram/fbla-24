@@ -1,5 +1,13 @@
 # AllySynergy
 
+## Prompt:
+Create a program that allows your school’s Career and Technical Education Department to
+collect and store information about local business and community partners. This program
+should include information on at least 25 different partners, with details such as, but not
+limited to, type of organization, resources available, and direct contact information for an
+individual. The program should enable users to search and filter the information as needed.
+
+
 - had ideas on incorporating an ai and basically a user can send a prompt about the data they are looking for and it would provide the specific information in terms of text for it.
 
 - make the search more advanced where the user can search for specific fields.
