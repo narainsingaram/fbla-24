@@ -2,8 +2,16 @@
   <div class="bg-base-200 p-8 m-4 rounded-2xl">
       <h2 class="flex-grow text-3xl mb-6 font-bold text-indigo-500">Partners</h2>
     <div class="flex items-center mb-4 space-x-4">
-      <button @click="changeView('grid')" :class="{ 'text-indigo-500 font-semibold underline': viewMode === 'grid' }">Grid</button>
-      <button @click="changeView('list')" :class="{ 'text-indigo-500 font-semibold underline': viewMode === 'list' }">List View</button>
+      <button @click="changeView('grid')" 
+      :class="{ 'text-indigo-500 font-semibold underline': viewMode === 'grid' }"
+      class="transition-transform transform hover:rounded-xl hover:scale-110 hover:bg-indigo-200 hover:text-white hover:underline">
+        <img src="@/assets/grid.png" class="rounded-xl">
+      </button>
+      <button @click="changeView('list')" 
+      :class="{ 'text-indigo-500 font-semibold underline': viewMode === 'list' }"
+      class="transition-transform transform hover:rounded-xl hover:scale-110 hover:bg-indigo-200 hover:text-white hover:underline">
+        <img src="@/assets/list.png" class="rounded-xl">
+      </button>
       <button @click="changeView('card')" :class="{ 'text-indigo-500 font-semibold underline': viewMode === 'card' }">Card</button>
       <button @click="changeView('table')" :class="{ 'text-indigo-500 font-semibold underline': viewMode === 'table' }">Table</button>
     </div>
@@ -51,9 +59,9 @@
       </ul>
       
     <ul v-else-if="viewMode === 'list'" class="space-y-4">
-      <li v-for="partner in partners" :key="partner.id" class="bg-white rounded-lg shadow-md p-4">
+      <li v-for="partner in partners" :key="partner.id" class="bg-blue-100 rounded-lg shadow-md p-4">
         <!-- Content for List View -->
-        <h3 class="text-xl font-semibold">{{ partner.name }}</h3>
+        <h3 class="text-xl text-black font-semibold">{{ partner.name }}</h3>
         <p class="text-gray-600">Type: {{ partner.type }}</p>
         <p class="text-gray-600">Contact: {{ partner.contact }}</p>
       </li>
