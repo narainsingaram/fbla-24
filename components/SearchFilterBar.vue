@@ -1,5 +1,5 @@
 <template>
-  <div class="search-filter-bar flex flex-col items-center w-full"> <!-- Added w-full to make the container span the entire page -->
+  <div class="search-filter-bar flex flex-col items-center mx-8"> <!-- Added w-full to make the container span the entire page -->
     <div class="search-input-wrapper relative w-full my-4"> <!-- Changed w-80 to w-full -->
       <input
         id="search"
