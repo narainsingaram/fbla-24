@@ -1,6 +1,6 @@
 <template>
   <div class="search-filter-bar flex flex-col items-center mx-8"> <!-- Added w-full to make the container span the entire page -->
-    <div class="search-input-wrapper relative w-full my-4"> <!-- Changed w-80 to w-full -->
+    <div class="search-input-wrapper relative w-9/12 my-4"> <!-- Changed w-80 to w-full -->
       <input
         id="search"
         v-model="searchQuery"
@@ -11,21 +11,8 @@
         placeholder="Search for Businesses"
         class="input bg-neutral-focus transition w-full rounded-full pl-4 pr-10 mx-auto"
       />
-      <div class="input-icon absolute inset-y-0 right-0 flex items-center">
-        <svg
-          fill="none"
-          stroke="currentColor"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          viewBox="0 0 24 24"
-          height="1em"
-          width="1em"
-          aria-hidden="true"
-        >
-          <path d="M17 10 A7 7 0 0 1 10 17 A7 7 0 0 1 3 10 A7 7 0 0 1 17 10 z" />
-          <path d="M21 21l-6-6" />
-        </svg>
+      <div class="input-icon absolute inset-y-0 right-0 flex items-center mr-4">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
       </div>
     </div>
     <div v-if="showNoResultsMessage" class="w-96 mx-auto my-4 alert alert-error">
