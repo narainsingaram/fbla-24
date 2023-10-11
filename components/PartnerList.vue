@@ -71,32 +71,32 @@
     </ul>
     <!-- Table view -->
 <table v-else-if="viewMode === 'table'" class="min-w-full divide-y divide-gray-200">
-  <thead class="bg-gray-100">
+  <thead class="bg-indigo-700 text-white p-4">
     <tr>
-      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-        Name
+      <th scope="col" class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">
+        Nametext
       </th>
-      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+      <th scope="col" class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">
         Type
       </th>
-      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+      <th scope="col" class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">
         Contact
       </th>
     </tr>
   </thead>
-  <tbody class="bg-white divide-y divide-gray-200">
-    <tr v-for="partner in partners" :key="partner.id">
-      <td class="px-6 py-4 whitespace-nowrap">
-        <div class="text-sm text-gray-900">{{ partner.name }}</div>
-      </td>
-      <td class="px-6 py-4 whitespace-nowrap">
-        <div class="text-sm text-gray-500">{{ partner.type }}</div>
-      </td>
-      <td class="px-6 py-4 whitespace-nowrap">
-        <div class="text-sm text-gray-500">{{ partner.contact }}</div>
-      </td>
-    </tr>
-  </tbody>
+  <tbody class="bg-gray-900 divide-y divide-indigo-700">
+  <tr v-for="partner in partners" :key="partner.id">
+    <td class="px-6 py-4 whitespace-nowrap">
+      <div class="text-sm text-indigo-100">{{ partner.name }}</div>
+    </td>
+    <td class="px-6 py-4 whitespace-nowrap">
+      <div class="text-sm text-indigo-300">{{ partner.type }}</div>
+    </td>
+    <td class="px-6 py-4 whitespace-nowrap">
+      <div class="text-sm text-indigo-300">{{ partner.contact }}</div>
+    </td>
+  </tr>
+</tbody>
 </table>
   </div>
 </template>
