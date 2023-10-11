@@ -123,36 +123,34 @@
 
 
     <!-- Table view -->
-    <table v-else-if="viewMode === 'table'" class="min-w-full divide-y divide-gray-200">
-      <thead class="bg-indigo-700 text-white p-4">
-        <tr>
-          <th scope="col" class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">Name</th>
-          <th scope="col" class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">Type</th>
-          <th scope="col" class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">Contact</th>
-          <th scope="col" class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">Latitude</th>
-          <th scope="col" class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">Longitude</th>
-        </tr>
-      </thead>
-      <tbody class="bg-gray-900 divide-y divide-indigo-700">
-        <tr v-for="partner in partners" :key="partner.id">
-          <td class="px-6 py-4 whitespace-nowrap">
-            <div class="text-sm text-indigo-100">{{ partner.name }}</div>
-          </td>
-          <td class="px-6 py-4 whitespace-nowrap">
-            <div class="text-sm text-indigo-300">{{ partner.type }}</div>
-          </td>
-          <td class="px-6 py-4 whitespace-nowrap">
-            <div class="text-sm text-indigo-300">{{ partner.contact }}</div>
-          </td>
-          <td class="px-6 py-4 whitespace-nowrap">
-            <div class="text-sm text-indigo-300">{{ partner.latitude }}</div>
-          </td>
-          <td class="px-6 py-4 whitespace-nowrap">
-            <div class="text-sm text-indigo-300">{{ partner.longitude }}</div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+<table v-else-if="viewMode === 'table'" class="min-w-full divide-y divide-gray-200">
+  <thead class="bg-indigo-700 text-white p-4">
+    <tr>
+      <th scope="col" class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">
+        Nametext
+      </th>
+      <th scope="col" class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">
+        Type
+      </th>
+      <th scope="col" class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">
+        Contact
+      </th>
+    </tr>
+  </thead>
+  <tbody class="bg-gray-900 divide-y divide-indigo-700">
+  <tr v-for="partner in partners" :key="partner.id">
+    <td class="px-6 py-4 whitespace-nowrap">
+      <div class="text-sm text-indigo-100">{{ partner.name }}</div>
+    </td>
+    <td class="px-6 py-4 whitespace-nowrap">
+      <div class="text-sm text-indigo-300">{{ partner.type }}</div>
+    </td>
+    <td class="px-6 py-4 whitespace-nowrap">
+      <div class="text-sm text-indigo-300">{{ partner.contact }}</div>
+    </td>
+  </tr>
+</tbody>
+</table>
   </div>
 </template>
 
