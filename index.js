@@ -44,3 +44,17 @@ client.generateText({
 }).then(result => {
   console.log(JSON.stringify(result, null, 2));
 });
+
+module.exports.generateTextFromInput = async function (userInput) {
+  // Modify your code to use userInput in the TextServiceClient.generateText method
+  // For simplicity, we'll use a placeholder here
+  const result = await client.generateText({
+    // ... (your existing configuration)
+    prompt: {
+      text: `You are an AI Assistant that helps provide information for users in the following app prompt: "${userInput}"`,
+    },
+  });
+
+  // Extract and return the generated text
+  return result.choices[0]?.text || 'No text generated.';
+};
