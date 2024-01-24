@@ -21,6 +21,7 @@
         "@nuxtjs/google-fonts": "^3.0.2",
         "brew": "^0.0.8",
         "daisyui": "^3.6.3",
+        "firebase": "^10.6.0",
         "yarn": "^1.22.19"
     }
 }
