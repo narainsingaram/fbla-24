@@ -1,1 +1,15 @@
-{"__collections__":{"businesses ":{"Greater Atlanta Tamil Sangam":{"Location":{"__datatype__":"geopoint","value":{"_latitude":33.748995,"_longitude":-84.387982}},"Contact":"John Doe","Type":"Non Profit","__collections__":{}}}}}
+{
+    "__collections__": {
+        "businesses": {
+            "8aoze8csEwpUQaEvCdbk": {
+                "latitude": 33.748995,
+                "name": "Greater Atlanta Tamil Sangam",
+                "type": "Non-Profit Organization",
+                "longitude": -84.387982,
+                "id": 1,
+                "contact": "Jackson John",
+                "__collections__": {}
+            }
+        }
+    }
+}
