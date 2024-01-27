@@ -29,6 +29,7 @@
         <!-- Content for Grid View -->
         <h3 class="text-2xl text-base-content font-semibold">{{ partner.name }}</h3>
         <div class="mt-2 text-sm">
+          <p class="">ID: {{ partner.id }}</p>
           <p class="text-neutral-content mt-2">Type: {{ partner.type }}</p>
           <p class="text-neutral-content">Contact: {{ partner.contact }}</p>
           <p class="text-neutral-content">Latitude: {{ partner.latitude }}</p>
