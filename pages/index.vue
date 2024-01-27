@@ -1,5 +1,6 @@
 <template>
   <div data-theme="dark">
+    <!-- Assuming Header, AiChat, SearchFilterBar, and PartnerList components are properly defined -->
     <Header></Header>
     <AiChat></AiChat>
     <SearchFilterBar @search="performSearch" />
@@ -8,17 +9,17 @@
 </template>
 
 <script setup lang="ts">
-import partnerData from "@/assets/partners.json";
+import testData from "@/backup.json";
 
-const partners = ref(partnerData);
+const organizations = ref(testData.__collections__?.businesses || {});
 const searchQuery = ref("");
 
 const filteredPartners = computed(() => {
-  return partners.value.filter(partner => {
+  return Object.values(organizations.value).filter(partner => {
     return (
-      partner.name.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
+      partner.contact.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
       partner.type.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
-      partner.contact.toLowerCase().includes(searchQuery.value.toLowerCase())
+      partner.name.toLowerCase().includes(searchQuery.value.toLowerCase())
     );
   });
 });
