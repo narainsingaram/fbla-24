@@ -22,6 +22,14 @@
       >
         Table
       </button>
+      <button
+      @click="changeView('map')"
+      :class="{ 'text-indigo-500 font-semibold underline': viewMode === 'map' }"
+      class="transition-transform transform hover:rounded-xl hover:scale-110 hover:bg-indigo-200 hover:text-white hover:underline"
+    >
+      Map
+    </button>
+      
     </div>
 
     <ul v-if="viewMode === 'grid'" class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -29,6 +37,7 @@
         <!-- Content for Grid View -->
         <h3 class="text-2xl text-base-content font-semibold">{{ partner.name }}</h3>
         <div class="mt-2 text-sm">
+          <p class="">ID: {{ partner.id }}</p>
           <p class="text-neutral-content mt-2">Type: {{ partner.type }}</p>
           <p class="text-neutral-content">Contact: {{ partner.contact }}</p>
           <p class="text-neutral-content">Latitude: {{ partner.latitude }}</p>
@@ -112,6 +121,13 @@
       </li>
     </ul>
 
+    <!-- Map View-->
+    
+    <div v-if="viewMode === 'map'" class="map-container">
+      <div id="map" class="h-64"></div>
+    </div>
+
+
     <!-- Table view -->
     <table v-else-if="viewMode === 'table'" class="min-w-full divide-y divide-gray-200">
       <thead class="bg-indigo-700 text-white p-4">
@@ -146,6 +162,10 @@
   </div>
 </template>
 
+
+
+
+
 <script>
 export default {
   props: {
@@ -153,13 +173,37 @@ export default {
   },
   data() {
     return {
-      viewMode: 'grid'
+      viewMode: 'grid',
+      map: null
     };
+  },
+  mounted() {
+    this.loadMapScript();
   },
   methods: {
     changeView(mode) {
       this.viewMode = mode;
+      if (mode === 'map') {
+        this.initMap();
+      }
+    },
+    loadMapScript() {
+      const script = document.createElement('script');
+      script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyAFq69d34t2H2ufrWFgwJYIjqPYZGoq03w&callback=initMap`;
+      script.async = true;
+      document.head.appendChild(script);
+    },
+    initMap() {
+      if (this.map) return;
+
+      this.$nextTick(() => {
+        this.map = new google.maps.Map(document.getElementById('map'), {
+          center: { lat: -34.397, lng: 150.644 },
+          zoom: 8
+        });
+      });
     }
   }
 };
 </script>
+
