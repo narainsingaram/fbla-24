@@ -2,6 +2,7 @@
   <div data-theme="dark">
     <!-- Assuming Header, AiChat, SearchFilterBar, and PartnerList components are properly defined -->
     <Header></Header>
+    <Add></Add>
     <AiChat></AiChat>
     <SearchFilterBar @search="performSearch" />
     <PartnerList :partners="filteredPartners" />
