@@ -22,6 +22,14 @@
       >
         Table
       </button>
+      <button
+      @click="changeView('map')"
+      :class="{ 'text-indigo-500 font-semibold underline': viewMode === 'map' }"
+      class="transition-transform transform hover:rounded-xl hover:scale-110 hover:bg-indigo-200 hover:text-white hover:underline"
+    >
+      Map
+    </button>
+      
     </div>
 
     <ul v-if="viewMode === 'grid'" class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -34,6 +42,9 @@
           <p class="text-neutral-content">Contact: {{ partner.contact }}</p>
           <p class="text-neutral-content">Latitude: {{ partner.latitude }}</p>
           <p class="text-neutral-content">Longitude: {{ partner.longitude }}</p>
+          <div class="map-container">
+            <div :id="'map_' + partner.id" class="h-64"></div>
+          </div>
         </div>
         <a :href="'#my_modal_' + partner.id" class="btn btn-primary my-6 lowercase mr-2">View in Detail</a>
         <button class="btn btn-secondary ml-2 lowercase">
@@ -113,6 +124,13 @@
       </li>
     </ul>
 
+    <!-- Map View-->
+    
+    <div v-if="viewMode === 'map'" class="map-container">
+      <div id="map" class="h-64"></div>
+    </div>
+
+
     <!-- Table view -->
     <table v-else-if="viewMode === 'table'" class="min-w-full divide-y divide-gray-200">
       <thead class="bg-indigo-700 text-white p-4">
@@ -154,12 +172,52 @@ export default {
   },
   data() {
     return {
-      viewMode: 'grid'
+      viewMode: 'grid',
+      maps: {} // Use an object to store individual maps
     };
   },
+  mounted() {
+  this.loadMapScript().catch(error => {
+    console.error('Error loading Google Maps API:', error);
+  });
+},
   methods: {
     changeView(mode) {
       this.viewMode = mode;
+      if (mode === 'map') {
+        this.initMaps();
+      }
+    },
+    loadMapScript() {
+  return new Promise((resolve, reject) => {
+    const script = document.createElement('script');
+    script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyAFq69d34t2H2ufrWFgwJYIjqPYZGoq03w`;
+    script.async = true;
+    script.onload = resolve;
+    script.onerror = reject;
+    document.head.appendChild(script);
+  }).then(() => this.initMaps());
+},
+    initMaps() {
+      if (Object.keys(this.maps).length === 0) {
+        this.partners.forEach(partner => {
+          const mapElement = document.getElementById('map_' + partner.id);
+
+          const partnerMap = new google.maps.Map(mapElement, {
+            center: { lat: parseFloat(partner.latitude), lng: parseFloat(partner.longitude) },
+            zoom: 10
+          });
+
+          new google.maps.Marker({
+            position: { lat: parseFloat(partner.latitude), lng: parseFloat(partner.longitude) },
+            map: partnerMap,
+            title: partner.name
+          });
+
+          // Store the map in the maps object
+          this.$set(this.maps, partner.id, partnerMap);
+        });
+      }
     }
   }
 };
