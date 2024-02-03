@@ -1,8 +1,11 @@
 <template>
-    <div>
-      <div ref="map" style="width: 100%; height: 400px;"></div>
+    <div class="flex justify-center items-center">
+      <div class="bg-white shadow-lg rounded-2xl p-6 w-full lg:w-3/4">
+        <div ref="map" class="w-full h-96 mb-6 rounded-2xl"></div>
+      </div>
     </div>
   </template>
+  
   
   <script>
   import businessData from '@/backup.json'; // Import the JSON data from backup.json
