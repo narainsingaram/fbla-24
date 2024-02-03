@@ -39,7 +39,7 @@ export default {
     return {
       searchQuery: "",
       showSuggestions: false,
-      partners: partnersData
+      partners: Array.isArray(partnersData) ? partnersData : []
     };
   },
   computed: {
@@ -78,26 +78,32 @@ export default {
       location.reload();
     },
     startVoiceSearch() {
-  const recognition = new webkitSpeechRecognition();
-  recognition.lang = 'en-US';
+  if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    const recognition = new SpeechRecognition();
+    recognition.lang = 'en-US';
 
-  recognition.onresult = (event) => {
-    const voiceInput = event.results[0][0].transcript;
-    this.searchQuery = voiceInput;
-    this.handleSearch();
-    this.hideSuggestions();
-  };
+    recognition.onresult = (event) => {
+      const voiceInput = event.results[0][0].transcript;
+      this.searchQuery = voiceInput;
+      this.handleSearch();
+      this.hideSuggestions();
+    };
 
-  recognition.onerror = (event) => {
-    console.error('Speech recognition error:', event.error);
-  };
+    recognition.onerror = (event) => {
+      console.error('Speech recognition error:', event.error);
+    };
 
-  recognition.onnomatch = (event) => {
-    console.log('No match found for speech input:', event);
-  };
+    recognition.onnomatch = (event) => {
+      console.log('No match found for speech input:', event);
+    };
 
-  recognition.start();
+    recognition.start();
+  } else {
+    console.error('Speech recognition is not supported in this browser.');
+  }
 }
+
   }
 };
 </script>
