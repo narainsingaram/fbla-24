@@ -99,7 +99,7 @@
           </div>
         </section>
         <!-- Modal for this grid item -->
-        <div :id="'my_modal_' + partner.id" class="modal fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+        <div :id="'my_modal_' + partner.id" class="modal flex items-center justify-center bg-black bg-opacity-50">
           <div class="modal-box bg-white p-8 rounded-lg shadow-lg">
             <h3 class="font-bold text-2xl mb-4">Business: {{ partner.name }}</h3>
             <p class="py-2">Type: {{ partner.type }}</p>
@@ -107,6 +107,8 @@
             <p class="py-2">Contact: {{ partner.contact }}</p>
             <p class="py-2">Latitude: {{ partner.latitude }}</p>
             <p class="py-2">Longitude: {{ partner.longitude }}</p>
+            <h4 class="py-2 text-2xl">Any Questions?</h4>
+            <FeedbackAi></FeedbackAi>
             <div class="modal-action">
               <a href="#" class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">x</a>
             </div>
