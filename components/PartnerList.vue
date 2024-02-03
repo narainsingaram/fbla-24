@@ -37,20 +37,21 @@
         <!-- Content for Grid View -->
         <h3 class="text-2xl text-base-content font-semibold">{{ partner.name }}</h3>
         <div class="mt-2 text-sm">
+          <img class="rounded-xl" :src="partner.image">
           <p class="">ID: {{ partner.id }}</p>
-          <p class="text-neutral-content mt-2">Type: {{ partner.type }}</p>
-          <p class="text-neutral-content">Contact: {{ partner.contact }}</p>
-          <p class="text-neutral-content">Latitude: {{ partner.latitude }}</p>
-          <p class="text-neutral-content">Longitude: {{ partner.longitude }}</p>
+          <p class="text-base-content mt-2">Type: {{ partner.type }}</p>
+          <p class="text-base-content">Contact: {{ partner.contact }}</p>
+          <p class="text-base-content">Latitude: {{ partner.latitude }}</p>
+          <p class="text-bases-content">Longitude: {{ partner.longitude }}</p>
           <div class="map-container">
             <div :id="'map_' + partner.id" class="h-64"></div>
           </div>
         </div>
         <a :href="'#my_modal_' + partner.id" class="btn btn-primary my-6 lowercase mr-2">View in Detail</a>
-        <button class="btn btn-secondary ml-2 lowercase">
+        <button @click="exportPartner(partner)" class="btn btn-secondary ml-2 lowercase">
           Export
           <div class="badge badge-accent">beta</div>
-        </button>
+        </button>        
         <section>
           <div class="badge badge-info gap-2 mx-2">
             <svg
@@ -98,13 +99,14 @@
           </div>
         </section>
         <!-- Modal for this grid item -->
-        <div class="modal" :id="'my_modal_' + partner.id">
-          <div class="modal-box">
-            <h3 class="font-bold text-lg">Business: {{ partner.name }}</h3>
-            <p class="py-4">Type: {{ partner.type }}</p>
-            <p class="py-4">Contact: {{ partner.contact }}</p>
-            <p class="py-4">Latitude: {{ partner.latitude }}</p>
-            <p class="py-4">Longitude: {{ partner.longitude }}</p>
+        <div :id="'my_modal_' + partner.id" class="modal fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+          <div class="modal-box bg-white p-8 rounded-lg shadow-lg">
+            <h3 class="font-bold text-2xl mb-4">Business: {{ partner.name }}</h3>
+            <p class="py-2">Type: {{ partner.type }}</p>
+            <p class="py-2">Description: {{ partner.description }}</p>
+            <p class="py-2">Contact: {{ partner.contact }}</p>
+            <p class="py-2">Latitude: {{ partner.latitude }}</p>
+            <p class="py-2">Longitude: {{ partner.longitude }}</p>
             <div class="modal-action">
               <a href="#" class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">x</a>
             </div>
@@ -177,10 +179,12 @@ export default {
     };
   },
   mounted() {
-  this.loadMapScript().catch(error => {
-    console.error('Error loading Google Maps API:', error);
-  });
-},
+    if (typeof window !== 'undefined') {
+      this.loadMapScript().catch(error => {
+        console.error('Error loading Google Maps API:', error);
+      });
+    }
+  },
   methods: {
     changeView(mode) {
       this.viewMode = mode;
@@ -189,15 +193,15 @@ export default {
       }
     },
     loadMapScript() {
-  return new Promise((resolve, reject) => {
-    const script = document.createElement('script');
-    script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyAFq69d34t2H2ufrWFgwJYIjqPYZGoq03w`;
-    script.async = true;
-    script.onload = resolve;
-    script.onerror = reject;
-    document.head.appendChild(script);
-  }).then(() => this.initMaps());
-},
+      return new Promise((resolve, reject) => {
+        const script = document.createElement('script');
+        script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyAFq69d34t2H2ufrWFgwJYIjqPYZGoq03w`;
+        script.async = true;
+        script.onload = resolve;
+        script.onerror = reject;
+        document.head.appendChild(script);
+      }).then(() => this.initMaps());
+    },
     initMaps() {
       if (Object.keys(this.maps).length === 0) {
         this.partners.forEach(partner => {
@@ -218,7 +222,50 @@ export default {
           this.$set(this.maps, partner.id, partnerMap);
         });
       }
-    }
+    },
+    exportPartner(partner) {
+      const content = `
+        Business: ${partner.name}
+        Type: ${partner.type}
+        Description: ${partner.description}
+        Contact: ${partner.contact}
+        Latitude: ${partner.latitude}
+        Longitude: ${partner.longitude}
+      `;
+
+      if (typeof window !== 'undefined') {
+        // Only execute the export if in a client-side environment
+        this.exportAsText(content, partner.name);
+        // this.exportAsPdf(content, partner.name);
+      } else {
+        console.warn('Export functionality skipped in non-client environment.');
+      }
+    },
+
+    exportAsText(content, fileName) {
+      const blob = new Blob([content], { type: 'text/plain' });
+      const link = document.createElement('a');
+      link.href = window.URL.createObjectURL(blob);
+      link.download = `${fileName}_info.txt`;
+      link.click();
+    },
+
+    async exportAsPdf(content, fileName) {
+      const pdfOptions = {
+        margin: 10,
+        filename: `${fileName}_info.pdf`,
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2 },
+        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+      };
+
+      const pdf = await toPdf(content, pdfOptions);
+      const blob = new Blob([pdf], { type: 'application/pdf' });
+      const link = document.createElement('a');
+      link.href = window.URL.createObjectURL(blob);
+      link.download = pdfOptions.filename;
+      link.click();
+    },
   }
 };
 </script>
