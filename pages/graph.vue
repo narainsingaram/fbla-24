@@ -18,6 +18,7 @@
           <ScatterLatLong></ScatterLatLong>
         </div>
       </div>
+      <GeoSpatial />
     </div>
   </template>
   

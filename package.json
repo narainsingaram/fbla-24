@@ -28,6 +28,8 @@
         "gson": "^0.1.5",
         "html-to-pdf-js": "^0.9.3",
         "json-conversion-tool": "^2.0.3",
+        "leaflet": "^1.9.4",
+        "mapbox-gl": "^3.1.2",
         "vue-draggable-resizable": "^3.0.0",
         "yarn": "^1.22.19"
     }
