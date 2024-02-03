@@ -25,6 +25,7 @@
         "firebase": "^10.7.2",
         "firebase-tools": "^13.0.3",
         "gson": "^0.1.5",
+        "html-to-pdf-js": "^0.9.3",
         "json-conversion-tool": "^2.0.3",
         "yarn": "^1.22.19"
     }
