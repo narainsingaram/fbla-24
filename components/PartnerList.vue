@@ -7,14 +7,14 @@
         :class="{ 'text-indigo-500 font-semibold underline': viewMode === 'grid' }"
         class="transition-transform transform hover:rounded-xl hover:scale-110 hover:bg-indigo-200 hover:text-white hover:underline"
       >
-        <img src="@/assets/grid.png" class="rounded-xl" />
+        Grid
       </button>
       <button
         @click="changeView('list')"
         :class="{ 'text-indigo-500 font-semibold underline': viewMode === 'list' }"
         class="transition-transform transform hover:rounded-xl hover:scale-110 hover:bg-indigo-200 hover:text-white hover:underline"
       >
-        <img src="@/assets/list.png" class="rounded-xl" />
+        List
       </button>
       <button
         @click="changeView('table')"
