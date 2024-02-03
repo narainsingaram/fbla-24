@@ -1,9 +1,9 @@
 <template>
-    <div class="mb-4">
+    <div class="join mb-4">
       <input v-model="userInput" placeholder="Enter your input" class="w-full p-2 border border-gray-300 rounded-md" />
+      <button @click="generateResponse" class="bg-blue-500 text-white py-2 px-4 rounded-md">Generate Response</button>
     </div>
     <div>
-      <button @click="generateResponse" class="bg-blue-500 text-white py-2 px-4 rounded-md">Generate Response</button>
     </div>
     <div v-if="loading" class="mt-6">
       <!-- Loading skeleton -->

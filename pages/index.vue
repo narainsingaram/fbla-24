@@ -3,7 +3,7 @@
     <!-- Assuming Header, AiChat, SearchFilterBar, and PartnerList components are properly defined -->
     <Header></Header>
     <Add></Add>
-    <AiChat></AiChat>
+    <router-link to="/qa">Go to New Page</router-link>
     <SearchFilterBar @search="performSearch" />
     <PartnerList :partners="filteredPartners" />
   </div>
