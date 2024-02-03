@@ -22,13 +22,6 @@
       >
         Table
       </button>
-      <button
-      @click="changeView('map')"
-      :class="{ 'text-indigo-500 font-semibold underline': viewMode === 'map' }"
-      class="transition-transform transform hover:rounded-xl hover:scale-110 hover:bg-indigo-200 hover:text-white hover:underline"
-    >
-      Map
-    </button>
       
     </div>
 
@@ -43,9 +36,6 @@
           <p class="text-base-content">Contact: {{ partner.contact }}</p>
           <p class="text-base-content">Latitude: {{ partner.latitude }}</p>
           <p class="text-bases-content">Longitude: {{ partner.longitude }}</p>
-          <div class="map-container">
-            <div :id="'map_' + partner.id" class="h-64"></div>
-          </div>
         </div>
         <a :href="'#my_modal_' + partner.id" class="btn btn-primary my-6 lowercase mr-2">View in Detail</a>
         <button @click="exportPartner(partner)" class="btn btn-secondary ml-2 lowercase">
@@ -166,25 +156,6 @@
         </tr>
       </tbody>
     </table>
-  </div>
-  <div class="flex justify-center mt-4">
-    <button
-      @click="prevPage"
-      :disabled="currentPage === 1"
-      class="btn btn-primary uppercase mr-2"
-    >
-      Previous Page
-    </button>
-    <span class="text-indigo-500 font-semibold">
-      Page {{ currentPage }} of {{ totalPages }}
-    </span>
-    <button
-      @click="nextPage"
-      :disabled="currentPage === totalPages"
-      class="btn btn-primary uppercase ml-2"
-    >
-      Next Page
-    </button>
   </div>
 </template>
 
