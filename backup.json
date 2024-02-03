@@ -14,13 +14,13 @@
             },
             "BUILDING UP THE COMMUNITY": {
                 "contact": "info@buildingupthecommunity.com",
-                "description": "",
                 "id": 6,
                 "image": "https://res.cloudinary.com/dktp1ybbx/image/upload/c_limit,h_170,w_170/f_auto,fl_lossy,q_auto/v1688579922/organization/prod/1236453/YChkH22r5H.png",
                 "latitude": 34.06597825491819,
-                "longitude": "-84.27976261424133",
                 "name": "Building Up The Community",
                 "type": "Non-Profit Organization",
+                "longitude": -84.27976261424133,
+                "description": "A 501c3 charitable organization that provides resources to the black, brown & LGBTQ+ communities. Our focus is homelessness, financial literacy, food initiative & domestic violence awareness. We service men, women, families & teens in the Atlanta Georgia. ",
                 "__collections__": {}
             },
             "Computer Museum of America": {
@@ -30,19 +30,19 @@
                 "description": "Computer Museum of America (CMoA) is a 501(c)3 non-profit created to preserve the history of the digital era. In the past half century, computing has grown from a few gadgets to an almost universal extension of human life. Yet while computing has become commonplace, the history of its innovation is being lost every day, as 'old' technology is discarded, recycled, or consigned to the landfill.",
                 "id": 13,
                 "type": "Non-Profit Organization",
-                "latitude": 34.038715716496306,
                 "longitude": -84.34177723168791,
+                "latitude": 34.038715716496306,
                 "__collections__": {}
             },
             "Food For Thought": {
                 "id": 5,
-                "image": "https://fftpinc.org/images-layout/blank4link.png",
                 "contact": "(770) 744-3571",
                 "latitude": 34.21590931328488,
                 "name": "Food For Thought",
                 "type": "Non-Profit Organization",
                 "description": "The Food for Thought Project is an ongoing, grassroots, door to door community food collection service. The Food For Thought Project collects over 30,000 pounds of food annually for Forsyth County food banks.",
                 "longitude": -84.13780425318838,
+                "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWftKZUqeiAZvYyU6W40QjuS031__DKvixJMC7PwFv_g&s",
                 "__collections__": {}
             },
             "Gardenia Mediterranean Restaurant": {
@@ -91,13 +91,13 @@
             },
             "Northeast Georgia History Center": {
                 "image": "https://s3-media0.fl.yelpcdn.com/bphoto/ANi-8niqAAAB3_bwspu4Ag/348s.jpg",
-                "Type": "Attraction",
                 "contact": "(770) 297-5900",
                 "latitude": 34.30246663588187,
                 "name": "Northeast Georgia History Center",
                 "description": "The Northeast Georgia History Center opened in 2004 and is home to the 18th century White Path Cabin, a working blacksmith shop, exhibits, and galleries that span 10,000 years of our region's rich history.",
                 "id": 12,
                 "longitude": -83.82488963168016,
+                "type": "Attraction",
                 "__collections__": {}
             },
             "Rise Against Hunger": {
