@@ -1,7 +1,7 @@
 <template>
     <div class="join mb-4">
       <input v-model="userInput" placeholder="Enter your input" class="w-full p-2 border border-gray-300 rounded-md" />
-      <button @click="generateResponse" class="bg-blue-500 text-white py-2 px-4 rounded-md">Generate Response</button>
+      <button @click="generateResponse" class="bg-blue-500 text-white py-2 px-4 rounded-md">Go</button>
     </div>
     <div>
     </div>

@@ -167,6 +167,25 @@
       </tbody>
     </table>
   </div>
+  <div class="flex justify-center mt-4">
+    <button
+      @click="prevPage"
+      :disabled="currentPage === 1"
+      class="btn btn-primary uppercase mr-2"
+    >
+      Previous Page
+    </button>
+    <span class="text-indigo-500 font-semibold">
+      Page {{ currentPage }} of {{ totalPages }}
+    </span>
+    <button
+      @click="nextPage"
+      :disabled="currentPage === totalPages"
+      class="btn btn-primary uppercase ml-2"
+    >
+      Next Page
+    </button>
+  </div>
 </template>
 
 <script>
@@ -177,8 +196,20 @@ export default {
   data() {
     return {
       viewMode: 'grid',
+      currentPage: 1,
+      itemsPerPage: 6, // Adjust as needed
       maps: {} // Use an object to store individual maps
     };
+  },
+  computed: {
+    totalPages() {
+      return Math.ceil(this.partners.length / this.itemsPerPage);
+    },
+    displayedPartners() {
+      const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+      const endIndex = startIndex + this.itemsPerPage;
+      return this.partners.slice(startIndex, endIndex);
+    }
   },
   mounted() {
     if (typeof window !== 'undefined') {
