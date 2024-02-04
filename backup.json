@@ -15,16 +15,15 @@
             "BUILDING UP THE COMMUNITY": {
                 "contact": "info@buildingupthecommunity.com",
                 "id": 6,
-                "image": "https://res.cloudinary.com/dktp1ybbx/image/upload/c_limit,h_170,w_170/f_auto,fl_lossy,q_auto/v1688579922/organization/prod/1236453/YChkH22r5H.png",
                 "latitude": 34.06597825491819,
                 "name": "Building Up The Community",
                 "type": "Non-Profit Organization",
                 "longitude": -84.27976261424133,
                 "description": "A 501c3 charitable organization that provides resources to the black, brown & LGBTQ+ communities. Our focus is homelessness, financial literacy, food initiative & domestic violence awareness. We service men, women, families & teens in the Atlanta Georgia. ",
+                "image": "https://givebutter.s3.amazonaws.com/profiles/L8kG1J2wlzyj83LbDuFcfzoXKjbmVXqtOtirGza6.jpg",
                 "__collections__": {}
             },
             "Computer Museum of America": {
-                "image": "https://s3-media0.fl.yelpcdn.com/bphoto/_ZZ4-F8VXKe5Fao03EC8zA/o.jpg",
                 "contact": "(770) 695-0651",
                 "name": "Computer Museum of America",
                 "description": "Computer Museum of America (CMoA) is a 501(c)3 non-profit created to preserve the history of the digital era. In the past half century, computing has grown from a few gadgets to an almost universal extension of human life. Yet while computing has become commonplace, the history of its innovation is being lost every day, as 'old' technology is discarded, recycled, or consigned to the landfill.",
@@ -32,6 +31,7 @@
                 "type": "Non-Profit Organization",
                 "longitude": -84.34177723168791,
                 "latitude": 34.038715716496306,
+                "image": "https://lh3.googleusercontent.com/p/AF1QipNsuwXhPjjkXarOxHt4Gu8H_GtT5fUQUqyIyg6j=s680-w680-h510",
                 "__collections__": {}
             },
             "Food For Thought": {

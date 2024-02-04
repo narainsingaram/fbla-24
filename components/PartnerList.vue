@@ -22,72 +22,23 @@
       >
         Table
       </button>
-      
     </div>
 
     <ul v-if="viewMode === 'grid'" class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-      <li v-for="partner in partners" :key="partner.id" class="rounded-xl bg-base-300 p-4">
+      <li v-for="partner in displayedPartners" :key="partner.id" class="rounded-xl bg-base-300 p-4 hover:shadow-md transition duration-300">
         <!-- Content for Grid View -->
-        <h3 class="text-2xl text-base-content font-semibold">{{ partner.name }}</h3>
-        <div class="mt-2 text-sm">
-          <img class="rounded-xl" :src="partner.image">
-          <p class="">ID: {{ partner.id }}</p>
-          <p class="text-base-content mt-2">Type: {{ partner.type }}</p>
-          <p class="text-base-content">Contact: {{ partner.contact }}</p>
-          <p class="text-base-content">Latitude: {{ partner.latitude }}</p>
-          <p class="text-bases-content">Longitude: {{ partner.longitude }}</p>
+        <div class="mb-2">
+          <h3 class="text-2xl text-base-content font-bold">{{ partner.name }}</h3>
+          <div class="mt-2 text-sm">
+            <img class="rounded-xl" :src="partner.image" style="height: 250px;">
+          </div>
         </div>
-        <a :href="'#my_modal_' + partner.id" class="btn btn-primary my-6 lowercase mr-2">View in Detail</a>
-        <button @click="exportPartner(partner)" class="btn btn-secondary ml-2 lowercase">
-          Export
-          <div class="badge badge-accent">beta</div>
-        </button>        
-        <section>
-          <div class="badge badge-info gap-2 mx-2">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              class="inline-block w-4 h-4 stroke-current"
-            >
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-            {{ partner.type }}
-          </div>
-          <div class="badge badge-success gap-2 mx-2">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              class="inline-block w-4 h-4 stroke-current"
-            >
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-            {{ partner.contact }}
-          </div>
-          <div class="badge badge-warning gap-2 mx-2">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              class="inline-block w-4 h-4 stroke-current"
-            >
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-            {{ partner.latitude }}
-          </div>
-          <div class="badge badge-error gap-2 mx-2 mt-2">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              class="inline-block w-4 h-4 stroke-current"
-            >
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-            {{ partner.longitude }}
-          </div>
-        </section>
+        <div class="flex items-center space-x-2">
+          <a :href="'#my_modal_' + partner.id" class="btn btn-primary lowercase">View in Detail</a>
+          <button @click="exportPartner(partner)" class="btn btn-secondary lowercase">
+            Export Info
+          </button>
+        </div>
         <!-- Modal for this grid item -->
         <div :id="'my_modal_' + partner.id" class="modal flex items-center justify-center bg-black bg-opacity-50">
           <div class="modal-box bg-white p-8 rounded-lg shadow-lg">
@@ -119,11 +70,10 @@
     </ul>
 
     <!-- Map View-->
-    
+
     <div v-if="viewMode === 'map'" class="map-container">
       <div id="map" class="h-64"></div>
     </div>
-
 
     <!-- Table view -->
     <table v-else-if="viewMode === 'table'" class="min-w-full divide-y divide-gray-200">
@@ -167,19 +117,12 @@ export default {
   data() {
     return {
       viewMode: 'grid',
-      currentPage: 1,
-      itemsPerPage: 6, // Adjust as needed
       maps: {} // Use an object to store individual maps
     };
   },
   computed: {
-    totalPages() {
-      return Math.ceil(this.partners.length / this.itemsPerPage);
-    },
     displayedPartners() {
-      const startIndex = (this.currentPage - 1) * this.itemsPerPage;
-      const endIndex = startIndex + this.itemsPerPage;
-      return this.partners.slice(startIndex, endIndex);
+      return this.partners;
     }
   },
   mounted() {
@@ -199,7 +142,7 @@ export default {
     loadMapScript() {
       return new Promise((resolve, reject) => {
         const script = document.createElement('script');
-        script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyAFq69d34t2H2ufrWFgwJYIjqPYZGoq03w`;
+        script.src = `https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY`;
         script.async = true;
         script.onload = resolve;
         script.onerror = reject;
