@@ -1,6 +1,7 @@
 <template>
     <div class="flex justify-center items-center">
-      <div class="bg-white shadow-lg rounded-2xl p-6 w-full lg:w-3/4">
+      <div class="rounded-2xl w-full">
+        <h1>Map of Community Organizations/Businesses</h1>
         <div ref="map" class="w-full h-96 mb-6 rounded-2xl"></div>
       </div>
     </div>
