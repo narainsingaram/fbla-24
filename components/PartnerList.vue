@@ -24,39 +24,54 @@
       </button>
     </div>
 
-    <ul v-if="viewMode === 'grid'" class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-      <li v-for="partner in displayedPartners" :key="partner.id" class="rounded-xl bg-base-300 p-4 hover:shadow-md transition duration-300">
-        <!-- Content for Grid View -->
-        <div class="mb-2">
-          <h3 class="text-2xl text-base-content font-bold">{{ partner.name }}</h3>
-          <div class="mt-2 text-sm">
-            <img class="rounded-xl" :src="partner.image" style="height: 250px;">
+    <div v-if="viewMode === 'grid'" class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Card Blog -->
+        <div v-for="partner in displayedPartners" :key="partner.id" class="group flex flex-col h-full bg-white border border-gray-200 shadow-sm rounded-xl dark:bg-slate-900 dark:border-gray-700 dark:shadow-slate-700/[.7] transition duration-300 ease-in-out transform hover:shadow-lg">
+          <div class="h-52 relative rounded-t-xl overflow-hidden">
+            <img :src="partner.image" alt="Partner Image" class="w-full h-full object-cover">
           </div>
-        </div>
-        <div class="flex items-center space-x-2">
-          <a :href="'#my_modal_' + partner.id" class="btn btn-primary lowercase">View in Detail</a>
-          <button @click="exportPartner(partner)" class="btn btn-secondary lowercase">
-            Export Info
-          </button>
-        </div>
-        <!-- Modal for this grid item -->
-        <div :id="'my_modal_' + partner.id" class="modal flex items-center justify-center bg-black bg-opacity-50">
-          <div class="modal-box bg-white p-8 rounded-lg shadow-lg">
-            <h3 class="font-bold text-2xl mb-4">Business: {{ partner.name }}</h3>
-            <p class="py-2">Type: {{ partner.type }}</p>
-            <p class="py-2">Description: {{ partner.description }}</p>
-            <p class="py-2">Contact: {{ partner.contact }}</p>
-            <p class="py-2">Latitude: {{ partner.latitude }}</p>
-            <p class="py-2">Longitude: {{ partner.longitude }}</p>
-            <h4 class="py-2 text-2xl">Any Questions?</h4>
-            <FeedbackAi></FeedbackAi>
-            <div class="modal-action">
-              <a href="#" class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">x</a>
+          <div class="p-4 md:p-6">
+            <span class="block mb-1 text-xs font-semibold uppercase text-blue-600 dark:text-blue-500">
+              {{ partner.type }}
+            </span>
+            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-300 dark:hover:text-white">
+              {{ partner.name }}
+            </h3>
+            <p class="mt-3 text-white">
+              {{ partner.description }}
+            </p>
+          </div>
+          <div class="mt-auto flex border-t border-gray-200 divide-x divide-gray-200 dark:border-gray-700 dark:divide-gray-700">
+            <a :href="'#my_modal_' + partner.id" class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-es-xl bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
+              View in Detail
+            </a>
+            <button @click="exportPartner(partner)" class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-ee-xl bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
+              Export Info
+            </button>
+          </div>
+          <!-- Modal for this grid item -->
+          <div :id="'my_modal_' + partner.id" class="modal flex items-center justify-center bg-black bg-opacity-50">
+            <div class="modal-box bg-white p-8 rounded-lg shadow-lg">
+              <h3 class="font-bold text-2xl mb-4">Business: {{ partner.name }}</h3>
+              <p class="py-2">Type: {{ partner.type }}</p>
+              <p class="py-2">Description: {{ partner.description }}</p>
+              <p class="py-2">Contact: {{ partner.contact }}</p>
+
+              <!-- Add more details as needed -->
+              <h4 class="py-2 text-2xl">Any Questions?</h4>
+              <FeedbackAi></FeedbackAi>
+              <div class="modal-action">
+                <a href="#" class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">x</a>
+              </div>
             </div>
           </div>
         </div>
-      </li>
-    </ul>
+        <!-- End Card Blog -->
+      </div>
+    </div>
+
+    <!-- Your existing list, map, and table views remain unchanged -->
 
     <ul v-else-if="viewMode === 'list'" class="space-y-4">
       <li v-for="partner in partners" :key="partner.id" class="bg-blue-100 rounded-lg shadow-md p-4">
@@ -216,3 +231,12 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+/* ... (existing styles) */
+
+/* Additional styles for hover effect */
+.group:hover {
+  transform: scale(1.05); /* Adjust the scale factor for the desired zoom effect on hover */
+}
+</style>

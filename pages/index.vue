@@ -1,5 +1,5 @@
 <template>
-  <div data-theme="cupcake">
+  <div data-theme="coffee">
     <!-- Assuming Header, AiChat, SearchFilterBar, and PartnerList components are properly defined -->
     <Header></Header>
     <Add></Add>
