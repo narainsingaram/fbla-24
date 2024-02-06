@@ -81,7 +81,7 @@ export default {
         },
       ];
 
-      const parts = [{ text: this.userInput }];
+      const parts = [ { text: "Context: make shorter answers that aren't that long and be straighforward" }, { text: this.userInput }];
 
       try {
         const result = await model.generateContent({
