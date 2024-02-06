@@ -22,90 +22,56 @@
       >
         Table
       </button>
-      
     </div>
 
-    <ul v-if="viewMode === 'grid'" class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-      <li v-for="partner in partners" :key="partner.id" class="rounded-xl bg-base-300 p-4">
-        <!-- Content for Grid View -->
-        <h3 class="text-2xl text-base-content font-semibold">{{ partner.name }}</h3>
-        <div class="mt-2 text-sm">
-          <img class="rounded-xl" :src="partner.image">
-          <p class="">ID: {{ partner.id }}</p>
-          <p class="text-base-content mt-2">Type: {{ partner.type }}</p>
-          <p class="text-base-content">Contact: {{ partner.contact }}</p>
-          <p class="text-base-content">Latitude: {{ partner.latitude }}</p>
-          <p class="text-bases-content">Longitude: {{ partner.longitude }}</p>
-        </div>
-        <a :href="'#my_modal_' + partner.id" class="btn btn-primary my-6 lowercase mr-2">View in Detail</a>
-        <button @click="exportPartner(partner)" class="btn btn-secondary ml-2 lowercase">
-          Export
-          <div class="badge badge-accent">beta</div>
-        </button>        
-        <section>
-          <div class="badge badge-info gap-2 mx-2">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              class="inline-block w-4 h-4 stroke-current"
-            >
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-            {{ partner.type }}
+    <div v-if="viewMode === 'grid'" class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Card Blog -->
+        <div v-for="partner in displayedPartners" :key="partner.id" class="group flex flex-col h-full bg-white border border-gray-200 shadow-sm rounded-xl dark:bg-slate-900 dark:border-gray-700 dark:shadow-slate-700/[.7] transition duration-300 ease-in-out transform hover:shadow-lg">
+          <div class="h-52 relative rounded-t-xl overflow-hidden">
+            <img :src="partner.image" alt="Partner Image" class="w-full h-full object-cover">
           </div>
-          <div class="badge badge-success gap-2 mx-2">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              class="inline-block w-4 h-4 stroke-current"
-            >
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-            {{ partner.contact }}
+          <div class="p-4 md:p-6">
+            <span class="block mb-1 text-xs font-semibold uppercase text-blue-600 dark:text-blue-500">
+              {{ partner.type }}
+            </span>
+            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-300 dark:hover:text-white">
+              {{ partner.name }}
+            </h3>
+            <p class="mt-3 text-white">
+              {{ partner.description }}
+            </p>
           </div>
-          <div class="badge badge-warning gap-2 mx-2">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              class="inline-block w-4 h-4 stroke-current"
-            >
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-            {{ partner.latitude }}
+          <div class="mt-auto flex border-t border-gray-200 divide-x divide-gray-200 dark:border-gray-700 dark:divide-gray-700">
+            <a :href="'#my_modal_' + partner.id" class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-es-xl bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
+              View in Detail
+            </a>
+            <button @click="exportPartner(partner)" class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-ee-xl bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
+              Export Info
+            </button>
           </div>
-          <div class="badge badge-error gap-2 mx-2 mt-2">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              class="inline-block w-4 h-4 stroke-current"
-            >
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-            {{ partner.longitude }}
-          </div>
-        </section>
-        <!-- Modal for this grid item -->
-        <div :id="'my_modal_' + partner.id" class="modal flex items-center justify-center bg-black bg-opacity-50">
-          <div class="modal-box bg-white p-8 rounded-lg shadow-lg">
-            <h3 class="font-bold text-2xl mb-4">Business: {{ partner.name }}</h3>
-            <p class="py-2">Type: {{ partner.type }}</p>
-            <p class="py-2">Description: {{ partner.description }}</p>
-            <p class="py-2">Contact: {{ partner.contact }}</p>
-            <p class="py-2">Latitude: {{ partner.latitude }}</p>
-            <p class="py-2">Longitude: {{ partner.longitude }}</p>
-            <h4 class="py-2 text-2xl">Any Questions?</h4>
-            <FeedbackAi></FeedbackAi>
-            <div class="modal-action">
-              <a href="#" class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">x</a>
+          <!-- Modal for this grid item -->
+          <div :id="'my_modal_' + partner.id" class="modal flex items-center justify-center bg-black bg-opacity-50">
+            <div class="modal-box bg-white p-8 rounded-lg shadow-lg">
+              <h3 class="font-bold text-2xl mb-4">Business: {{ partner.name }}</h3>
+              <p class="py-2">Type: {{ partner.type }}</p>
+              <p class="py-2">Description: {{ partner.description }}</p>
+              <p class="py-2">Contact: {{ partner.contact }}</p>
+
+              <!-- Add more details as needed -->
+              <h4 class="py-2 text-2xl">Any Questions?</h4>
+              <FeedbackAi></FeedbackAi>
+              <div class="modal-action">
+                <a href="#" class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">x</a>
+              </div>
             </div>
           </div>
         </div>
-      </li>
-    </ul>
+        <!-- End Card Blog -->
+      </div>
+    </div>
+
+    <!-- Your existing list, map, and table views remain unchanged -->
 
     <ul v-else-if="viewMode === 'list'" class="space-y-4">
       <li v-for="partner in partners" :key="partner.id" class="bg-blue-100 rounded-lg shadow-md p-4">
@@ -119,11 +85,10 @@
     </ul>
 
     <!-- Map View-->
-    
+
     <div v-if="viewMode === 'map'" class="map-container">
       <div id="map" class="h-64"></div>
     </div>
-
 
     <!-- Table view -->
     <table v-else-if="viewMode === 'table'" class="min-w-full divide-y divide-gray-200">
@@ -167,19 +132,12 @@ export default {
   data() {
     return {
       viewMode: 'grid',
-      currentPage: 1,
-      itemsPerPage: 6, // Adjust as needed
       maps: {} // Use an object to store individual maps
     };
   },
   computed: {
-    totalPages() {
-      return Math.ceil(this.partners.length / this.itemsPerPage);
-    },
     displayedPartners() {
-      const startIndex = (this.currentPage - 1) * this.itemsPerPage;
-      const endIndex = startIndex + this.itemsPerPage;
-      return this.partners.slice(startIndex, endIndex);
+      return this.partners;
     }
   },
   mounted() {
@@ -199,7 +157,7 @@ export default {
     loadMapScript() {
       return new Promise((resolve, reject) => {
         const script = document.createElement('script');
-        script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyAFq69d34t2H2ufrWFgwJYIjqPYZGoq03w`;
+        script.src = `https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY`;
         script.async = true;
         script.onload = resolve;
         script.onerror = reject;
@@ -273,3 +231,12 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+/* ... (existing styles) */
+
+/* Additional styles for hover effect */
+.group:hover {
+  transform: scale(1.05); /* Adjust the scale factor for the desired zoom effect on hover */
+}
+</style>
