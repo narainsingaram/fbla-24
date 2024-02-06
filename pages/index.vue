@@ -1,11 +1,16 @@
 <template>
-  <div data-theme="coffee">
+  <div data-theme="winter">
     <!-- Assuming Header, AiChat, SearchFilterBar, and PartnerList components are properly defined -->
     <Header></Header>
-    <Add></Add>
-    <router-link to="/qa">Go to New Page</router-link>
-    <SearchFilterBar @search="performSearch" />
-    <PartnerList :partners="filteredPartners" />
+    <!-- <Add></Add> -->
+      <!-- Content -->
+  <div class="w-full pt-10 px-4 sm:px-6 md:px-8 lg:ps-72">
+    <!-- Page Heading -->
+      <router-link to="/qa">Go to New Page</router-link>
+      <SearchFilterBar @search="performSearch" />
+      <PartnerList :partners="filteredPartners" />
+    <!-- End Page Heading -->
+  </div>
   </div>
 </template>
 
