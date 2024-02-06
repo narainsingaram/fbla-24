@@ -1,5 +1,5 @@
 <template>
-      <ul class="flex flex-col sm:flex-row">
+      <ul class="flex flex-col justify-center items-center sm:flex-row">
         <li class="inline-flex items-center gap-x-2.5 py-3 px-4 text-sm font-medium bg-white border border-gray-200 text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ms-px sm:mt-0 sm:first:rounded-se-none sm:first:rounded-es-lg sm:last:rounded-es-none sm:last:rounded-se-lg dark:bg-slate-900 dark:border-gray-700 dark:text-white">
           <svg class="flex-shrink-0 w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"/><path d="M12 12v9"/><path d="m8 17 4 4 4-4"/></svg>
           <button
@@ -31,40 +31,46 @@
         </li>
       </ul>
 
-    <div v-if="viewMode === 'grid'" class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Card Blog -->
-        <div v-for="partner in displayedPartners" :key="partner.id" class="group flex flex-col h-full bg-white border border-gray-200 shadow-sm rounded-xl dark:bg-slate-900 dark:border-gray-700 dark:shadow-slate-700/[.7] transition duration-300 ease-in-out transform hover:shadow-lg">
-          <div class="h-52 relative rounded-t-xl overflow-hidden">
-            <img :src="partner.image" alt="Partner Image" class="w-full h-full object-cover">
+      <div v-if="viewMode === 'grid'" class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Card Blog -->
+          <div v-for="partner in displayedPartners" :key="partner.id" class="group flex flex-col h-full bg-white border border-gray-200 shadow-sm rounded-xl dark:bg-slate-900 dark:border-gray-700 dark:shadow-slate-700/[.7] transition duration-300 ease-in-out transform hover:shadow-lg">
+            <div class="h-52 relative rounded-t-xl overflow-hidden">
+              <img :src="partner.image" alt="Partner Image" class="w-full h-full object-cover">
+            </div>
+            <div class="p-4 md:p-6">
+              <span class="block mb-1 text-xs font-semibold uppercase text-blue-600 dark:text-blue-500">
+                {{ partner.type }}
+              </span>
+              <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-300 dark:hover:text-white">
+                {{ partner.name }}
+              </h3>
+              <p class="mt-3 text-white">
+                {{ partner.description }}
+              </p>
+            </div>
+            <div class="mt-auto flex border-t border-gray-200 divide-x divide-gray-200 dark:border-gray-700 dark:divide-gray-700">
+              <a :href="'#my_modal_' + partner.id" class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-es-xl bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
+                View in Detail
+              </a>
+              <button @click="exportPartner(partner)" class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-ee-xl bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
+                Export Info
+              </button>
+            </div>
           </div>
-          <div class="p-4 md:p-6">
-            <span class="block mb-1 text-xs font-semibold uppercase text-blue-600 dark:text-blue-500">
-              {{ partner.type }}
-            </span>
-            <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-300 dark:hover:text-white">
-              {{ partner.name }}
-            </h3>
-            <p class="mt-3 text-white">
-              {{ partner.description }}
-            </p>
-          </div>
-          <div class="mt-auto flex border-t border-gray-200 divide-x divide-gray-200 dark:border-gray-700 dark:divide-gray-700">
-            <a :href="'#my_modal_' + partner.id" class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-es-xl bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
-              View in Detail
-            </a>
-            <button @click="exportPartner(partner)" class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-ee-xl bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
-              Export Info
-            </button>
-          </div>
-          <!-- Modal for this grid item -->
-          <div :id="'my_modal_' + partner.id" class="modal flex items-center justify-center bg-black bg-opacity-50">
+          <!-- End Card Blog -->
+        </div>
+      </div>
+      
+      <!-- Modal outside of the loop -->
+      <div v-if="viewMode === 'grid'">
+        <div v-for="partner in displayedPartners" :key="'modal_' + partner.id">
+          <div :id="'my_modal_' + partner.id" class="modal flex items-center justify-center bg-black bg-opacity-50 fixed inset-0 z-50">
             <div class="modal-box bg-white p-8 rounded-lg shadow-lg">
               <h3 class="font-bold text-2xl mb-4">Business: {{ partner.name }}</h3>
               <p class="py-2">Type: {{ partner.type }}</p>
               <p class="py-2">Description: {{ partner.description }}</p>
               <p class="py-2">Contact: {{ partner.contact }}</p>
-
               <!-- Add more details as needed -->
               <h4 class="py-2 text-2xl">Any Questions?</h4>
               <FeedbackAi></FeedbackAi>
@@ -73,20 +79,9 @@
               </div>
             </div>
           </div>
-          <input type="checkbox" :id="'my_modal_' + partner.id" class="modal-toggle" />
-    <div class="modal" role="dialog">
-  <div class="modal-box">
-    <h3 class="font-bold text-lg">Hello!</h3>
-    <p class="py-4">This modal works with a hidden checkbox!</p>
-    <div class="modal-action">
-      <label for="my_modal_6" class="btn">Close!</label>
-    </div>
-  </div>
-</div>
         </div>
-        <!-- End Card Blog -->
       </div>
-    </div>
+      
 
     <!-- Your existing list, map, and table views remain unchanged -->
 

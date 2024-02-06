@@ -2,7 +2,7 @@
   <div data-theme="winter">
     <!-- Assuming Header, AiChat, SearchFilterBar, and PartnerList components are properly defined -->
     <Header></Header>
-    <!-- <Add></Add> -->
+    <Add></Add>
       <!-- Content -->
   <div class="w-full pt-10 px-4 sm:px-6 md:px-8 lg:ps-72">
     <!-- Page Heading -->

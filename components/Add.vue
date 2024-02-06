@@ -1,5 +1,3 @@
-// YourComponent.vue
-
 <template>
   <div>
     <label>Name:</label>
