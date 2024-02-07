@@ -33,8 +33,8 @@
       },
       renderMap() {
         const map = new google.maps.Map(this.$refs.map, {
-          center: { lat: 35, lng: -80 }, // Set the initial center of the map
-          zoom: 4 // Set the initial zoom level
+          center: { lat: 34, lng: -84 }, // Set the initial center of the map
+          zoom: 9 // Set the initial zoom level
         });
   
         for (const businessId in this.businesses) {
