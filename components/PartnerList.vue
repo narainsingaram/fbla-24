@@ -89,7 +89,7 @@
 
     <!-- Your existing list, map, and table views remain unchanged -->
 
-    <ul v-else-if="viewMode === 'list'" class="space-y-4">
+    <ul v-else-if="viewMode === 'list'" class="mt-8 space-y-4">
       <li v-for="partner in partners" :key="partner.id" class="bg-blue-100 rounded-lg shadow-md p-4">
         <!-- Content for List View -->
         <h3 class="text-xl text-black font-semibold">{{ partner.name }}</h3>
@@ -107,36 +107,28 @@
     </div>
 
     <!-- Table view -->
-    <table v-else-if="viewMode === 'table'" class="min-w-full divide-y divide-gray-200">
-      <thead class="bg-indigo-700 text-white p-4">
-        <tr>
-          <th scope="col" class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">Name</th>
-          <th scope="col" class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">Type</th>
-          <th scope="col" class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">Contact</th>
-          <th scope="col" class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">Latitude</th>
-          <th scope="col" class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">Longitude</th>
-        </tr>
-      </thead>
-      <tbody class="bg-gray-900 divide-y divide-indigo-700">
-        <tr v-for="partner in partners" :key="partner.id">
-          <td class="px-6 py-4 whitespace-nowrap">
-            <div class="text-sm text-indigo-100">{{ partner.name }}</div>
-          </td>
-          <td class="px-6 py-4 whitespace-nowrap">
-            <div class="text-sm text-indigo-300">{{ partner.type }}</div>
-          </td>
-          <td class="px-6 py-4 whitespace-nowrap">
-            <div class="text-sm text-indigo-300">{{ partner.contact }}</div>
-          </td>
-          <td class="px-6 py-4 whitespace-nowrap">
-            <div class="text-sm text-indigo-300">{{ partner.latitude }}</div>
-          </td>
-          <td class="px-6 py-4 whitespace-nowrap">
-            <div class="text-sm text-indigo-300">{{ partner.longitude }}</div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+<!-- Table view -->
+<table v-else-if="viewMode === 'table'" class="mt-8 min-w-full bg-white shadow-md rounded-lg overflow-hidden divide-y divide-gray-200">
+  <thead class="bg-indigo-700 text-white">
+    <tr>
+      <th scope="col" class="px-6 py-3 text-left text-sm font-semibold uppercase">Name</th>
+      <th scope="col" class="px-6 py-3 text-left text-sm font-semibold uppercase">Type</th>
+      <th scope="col" class="px-6 py-3 text-left text-sm font-semibold uppercase">Contact</th>
+      <th scope="col" class="px-6 py-3 text-left text-sm font-semibold uppercase">Latitude</th>
+      <th scope="col" class="px-6 py-3 text-left text-sm font-semibold uppercase">Longitude</th>
+    </tr>
+  </thead>
+  <tbody class="divide-y divide-gray-200">
+    <tr v-for="partner in partners" :key="partner.id" class="bg-white hover:bg-gray-100">
+      <td class="px-6 py-4 whitespace-nowrap">{{ partner.name }}</td>
+      <td class="px-6 py-4 whitespace-nowrap">{{ partner.type }}</td>
+      <td class="px-6 py-4 whitespace-nowrap">{{ partner.contact }}</td>
+      <td class="px-6 py-4 whitespace-nowrap">{{ partner.latitude }}</td>
+      <td class="px-6 py-4 whitespace-nowrap">{{ partner.longitude }}</td>
+    </tr>
+  </tbody>
+</table>
+
 </template>
 
 <script>
