@@ -72,8 +72,12 @@
               <p class="py-2">Description: {{ partner.description }}</p>
               <p class="py-2">Contact: {{ partner.contact }}</p>
               <!-- Add more details as needed -->
-              <h4 class="py-2 text-2xl">Any Questions?</h4>
-              <FeedbackAi></FeedbackAi>
+              <div class="bg-slate-200 p-4 my-4 rounded-2xl relative">
+                <h4 class="py-2 text-2xl font-extrabold text-center">Any Questions?
+                  <div class="badge badge-primary badge-md absolute top-0 right-0 mt-2 mr-2">✧ AI</div>
+                </h4>
+                <FeedbackAi></FeedbackAi>
+              </div>              
               <div class="modal-action">
                 <a href="#" class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">x</a>
               </div>
