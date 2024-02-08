@@ -1,30 +1,30 @@
 <template>
-      <ul class="flex flex-col justify-center items-center sm:flex-row">
-        <li class="inline-flex items-center gap-x-2.5 py-3 px-4 text-sm font-medium bg-white border border-gray-200 text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ms-px sm:mt-0 sm:first:rounded-se-none sm:first:rounded-es-lg sm:last:rounded-es-none sm:last:rounded-se-lg dark:bg-slate-900 dark:border-gray-700 dark:text-white">
+      <ul class="mt-8 flex flex-col justify-center items-center sm:flex-row">
+        <li class="inline-flex items-center gap-x-2.5 py-3 px-4 text-sm font-medium bg-white border border-gray-200 text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ms-px sm:mt-0 sm:first:rounded-se-none sm:first:rounded-es-lg sm:last:rounded-es-none sm:last:rounded-se-lg">
           <svg class="flex-shrink-0 w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"/><path d="M12 12v9"/><path d="m8 17 4 4 4-4"/></svg>
           <button
           @click="changeView('grid')"
-          :class="{ 'text-indigo-200 font-semibold': viewMode === 'grid' }"
-          class="transition-transform transform hover:rounded-xl hover:scale-110 hover:bg-indigo-200 hover:text-white"
+          :class="{ 'text-indigo-600 font-semibold': viewMode === 'grid' }"
+          class="transition-transform transform hover:rounded-xl hover:scale-110 hover:text-indigo-700"
         >
           Grid
         </button>
         </li>
-        <li class="inline-flex items-center gap-x-2.5 py-3 px-4 text-sm font-medium bg-white border border-gray-200 text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ms-px sm:mt-0 sm:first:rounded-se-none sm:first:rounded-es-lg sm:last:rounded-es-none sm:last:rounded-se-lg dark:bg-slate-900 dark:border-gray-700 dark:text-white">
+        <li class="inline-flex items-center gap-x-2.5 py-3 px-4 text-sm font-medium bg-white border border-gray-200 text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ms-px sm:mt-0 sm:first:rounded-se-none sm:first:rounded-es-lg sm:last:rounded-es-none sm:last:rounded-se-lg">
           <svg class="flex-shrink-0 w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"/><path d="M12 12v9"/><path d="m8 17 4 4 4-4"/></svg>
           <button
           @click="changeView('list')"
-          :class="{ 'text-indigo-500 font-semibold underline': viewMode === 'list' }"
+          :class="{ 'text-indigo-600 font-semibold underline': viewMode === 'list' }"
           class=""
         >
           List
         </button>
         </li>
-        <li class="inline-flex items-center gap-x-2.5 py-3 px-4 text-sm font-medium bg-white border border-gray-200 text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ms-px sm:mt-0 sm:first:rounded-se-none sm:first:rounded-es-lg sm:last:rounded-es-none sm:last:rounded-se-lg dark:bg-slate-900 dark:border-gray-700 dark:text-white">
+        <li class="inline-flex items-center gap-x-2.5 py-3 px-4 text-sm font-medium bg-white border border-gray-200 text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ms-px sm:mt-0 sm:first:rounded-se-none sm:first:rounded-es-lg sm:last:rounded-es-none sm:last:rounded-se-lg">
           <svg class="flex-shrink-0 w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
           <button
           @click="changeView('table')"
-          :class="{ 'text-indigo-500 font-semibold underline': viewMode === 'table' }"
+          :class="{ 'text-indigo-600 font-semibold underline': viewMode === 'table' }"
         >
           Table
         </button>
@@ -34,26 +34,26 @@
       <div v-if="viewMode === 'grid'" class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           <!-- Card Blog -->
-          <div v-for="partner in displayedPartners" :key="partner.id" class="group flex flex-col h-full bg-white border border-gray-200 shadow-sm rounded-xl dark:bg-slate-900 dark:border-gray-700 dark:shadow-slate-700/[.7] transition duration-300 ease-in-out transform hover:shadow-lg">
+          <div v-for="partner in displayedPartners" :key="partner.id" class="group flex flex-col h-full bg-white border border-gray-200 shadow-sm rounded-xl transition duration-300 ease-in-out transform hover:shadow-lg">
             <div class="h-52 relative rounded-t-xl overflow-hidden">
               <img :src="partner.image" alt="Partner Image" class="w-full h-full object-cover">
             </div>
             <div class="p-4 md:p-6">
-              <span class="block mb-1 text-xs font-semibold uppercase text-blue-600 dark:text-blue-500">
+              <span class="block mb-1 text-xs font-semibold uppercase text-blue-600">
                 {{ partner.type }}
               </span>
-              <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-300 dark:hover:text-white">
+              <h3 class="text-xl font-semibold text-gray-800">
                 {{ partner.name }}
               </h3>
-              <p class="mt-3 text-white">
+              <p class="mt-3 text-black">
                 {{ partner.description }}
               </p>
             </div>
-            <div class="mt-auto flex border-t border-gray-200 divide-x divide-gray-200 dark:border-gray-700 dark:divide-gray-700">
-              <a :href="'#my_modal_' + partner.id" class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-es-xl bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
+            <div class="mt-auto flex border-t border-gray-200 divide-x divide-gray-200">
+              <a :href="'#my_modal_' + partner.id" class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-es-xl bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none">
                 View in Detail
               </a>
-              <button @click="exportPartner(partner)" class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-ee-xl bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
+              <button @click="exportPartner(partner)" class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-ee-xl bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none">
                 Export Info
               </button>
             </div>
