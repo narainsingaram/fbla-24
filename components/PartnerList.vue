@@ -92,16 +92,26 @@
 
     <!-- Your existing list, map, and table views remain unchanged -->
 
-    <ul v-else-if="viewMode === 'list'" class="mt-8 space-y-4">
-      <li v-for="partner in partners" :key="partner.id" class="bg-blue-100 rounded-lg shadow-md p-4">
-        <!-- Content for List View -->
-        <h3 class="text-xl text-black font-semibold">{{ partner.name }}</h3>
-        <p class="text-gray-600">Type: {{ partner.type }}</p>
-        <p class="text-gray-600">Contact: {{ partner.contact }}</p>
-        <p class="text-gray-600">Latitude: {{ partner.latitude }}</p>
-        <p class="text-gray-600">Longitude: {{ partner.longitude }}</p>
-      </li>
-    </ul>
+    <ul v-else-if="viewMode === 'list'" class="partners-list">
+    <li v-for="partner in partners" :key="partner.id" class="partner-item">
+        <div class="partner-content">
+            <!-- Updated part: Wrapped the name inside an <a> tag with :href binding -->
+            <h3 class="partner-name">
+                <a :href="partner.link" target="_blank" class="partner-link">{{ partner.name }}</a>
+            </h3>
+            <div class="partner-details">
+                <p><i class="fas fa-industry"></i> Type: {{ partner.type }}</p>
+                <p><i class="fas fa-phone"></i> Contact: {{ partner.contact }}</p>
+                <div class="location-info">
+                    <p><i class="fas fa-map-marker-alt"></i> Location:</p>
+                    <p>Lat: {{ partner.latitude }}, Long: {{ partner.longitude }}</p>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>
+
+
 
     <!-- Map View-->
 
@@ -203,6 +213,7 @@ export default {
         Contact: ${partner.contact}
         Latitude: ${partner.latitude}
         Longitude: ${partner.longitude}
+        Link: ${partner.link}
       `;
 
       if (typeof window !== 'undefined') {
@@ -250,4 +261,72 @@ export default {
 .group:hover {
   transform: scale(1.05); /* Adjust the scale factor for the desired zoom effect on hover */
 }
+.partners-list {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.partner-item {
+    background-color: #ebf8ff;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    overflow: hidden;
+}
+
+.partner-item:hover {
+    transform: translateY(-5px);
+}
+
+.partner-content {
+    padding: 1rem;
+    color: #1a202c;
+}
+
+.partner-name {
+    font-size: 1.25rem;
+    color: #2b6cb0;
+    font-weight: bold;
+}
+
+.partner-details p {
+    display: flex;
+    align-items: center;
+    font-size: 0.875rem;
+    color: #4a5568;
+    margin: 0.25rem 0;
+}
+
+.partner-details p i {
+    margin-right: 0.5rem;
+}
+
+.location-info {
+    display: flex;
+    flex-direction: column;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .partner-item {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .partner-item:hover {
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+    }
+}
+.partner-link {
+    color: #2b6cb0; /* Adjust the color to fit your design */
+    text-decoration: none; /* Removes underline from links */
+    transition: color 0.3s ease; /* Smooth color transition for hover effect */
+}
+
+.partner-link:hover, .partner-link:focus {
+    color: #2c5282; /* Darker shade on hover/focus for better visibility */
+    text-decoration: underline; /* Adds underline on hover/focus for clarity */
+}
+
+
 </style>
