@@ -39,6 +39,7 @@
               <img :src="partner.image" alt="Partner Image" class="w-full h-full object-cover">
             </div>
             <div class="p-4 md:p-6">
+            <a :href="partner.link" target="_blank" style="text-decoration: none; color: inherit;">
               <span class="block mb-1 text-xs font-semibold uppercase text-blue-600">
                 {{ partner.type }}
               </span>
@@ -48,6 +49,7 @@
               <p class="mt-3 text-black">
                 {{ partner.description }}
               </p>
+          </a>
             </div>
             <div class="mt-auto flex border-t border-gray-200 divide-x divide-gray-200">
               <a :href="'#my_modal_' + partner.id" class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-es-xl bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none">
@@ -71,6 +73,7 @@
               <p class="py-2">Type: {{ partner.type }}</p>
               <p class="py-2">Description: {{ partner.description }}</p>
               <p class="py-2">Contact: {{ partner.contact }}</p>
+              <u><a :href="partner.link" target="_blank" style="text-decoration: none; color:blue;">{{ partner.name }}</a></u> <!-- Make the name clickable -->
               <!-- Add more details as needed -->
               <div class="bg-slate-200 p-4 my-4 rounded-2xl relative">
                 <h4 class="py-2 text-2xl font-extrabold text-center">Any Questions?
@@ -237,6 +240,7 @@ export default {
     },
   }
 };
+
 </script>
 
 <style scoped>

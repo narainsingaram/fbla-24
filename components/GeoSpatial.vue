@@ -61,6 +61,3 @@
   };
   </script>
   
-  <style>
-  /* Add any necessary styles for the map container */
-  </style>
