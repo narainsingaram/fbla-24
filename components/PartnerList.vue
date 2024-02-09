@@ -39,23 +39,18 @@
               <img :src="partner.image" alt="Partner Image" class="w-full h-full object-cover">
             </div>
             <div class="p-4 md:p-6">
-  <span
-    class="block mb-1 text-xs font-semibold uppercase"
-    :class="{
-      'text-green-600': partner.type === 'Non-Profit Organization',
-      'text-yellow-600': partner.type === 'Restaurant',
-      'text-red-600': partner.type === 'Attraction'
-    }"
-  >
-    {{ partner.type }}
-  </span>
-  <h3 class="text-xl font-semibold text-gray-800">
-    {{ partner.name }}
-  </h3>
-  <p class="mt-3 text-black">
-    {{ partner.description }}
-  </p>
-</div>
+            <a :href="partner.link" target="_blank" style="text-decoration: none; color: inherit;">
+              <span class="block mb-1 text-xs font-semibold uppercase text-blue-600">
+                {{ partner.type }}
+              </span>
+              <h3 class="text-xl font-semibold text-gray-800">
+                {{ partner.name }}
+              </h3>
+              <p class="mt-3 text-black">
+                {{ partner.description }}
+              </p>
+          </a>
+            </div>
             <div class="mt-auto flex border-t border-gray-200 divide-x divide-gray-200">
               <a :href="'#my_modal_' + partner.id" class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-es-xl bg-emerald-300 text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none">
                 View in Detail
@@ -78,9 +73,14 @@
               <p class="py-2">Type: {{ partner.type }}</p>
               <p class="py-2">Description: {{ partner.description }}</p>
               <p class="py-2">Contact: {{ partner.contact }}</p>
+              <u><a :href="partner.link" target="_blank" style="text-decoration: none; color:blue;">{{ partner.name }}</a></u> <!-- Make the name clickable -->
               <!-- Add more details as needed -->
-              <h4 class="py-2 text-2xl">Any Questions?</h4>
-              <FeedbackAi></FeedbackAi>
+              <div class="bg-slate-200 p-4 my-4 rounded-2xl relative">
+                <h4 class="py-2 text-2xl font-extrabold text-center">Any Questions?
+                  <div class="badge badge-primary badge-md absolute top-0 right-0 mt-2 mr-2">✧ AI</div>
+                </h4>
+                <FeedbackAi></FeedbackAi>
+              </div>              
               <div class="modal-action">
                 <a href="#" class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">x</a>
               </div>
@@ -92,16 +92,26 @@
 
     <!-- Your existing list, map, and table views remain unchanged -->
 
-    <ul v-else-if="viewMode === 'list'" class="space-y-4">
-      <li v-for="partner in partners" :key="partner.id" class="bg-blue-100 rounded-lg shadow-md p-4">
-        <!-- Content for List View -->
-        <h3 class="text-xl text-black font-semibold">{{ partner.name }}</h3>
-        <p class="text-gray-600">Type: {{ partner.type }}</p>
-        <p class="text-gray-600">Contact: {{ partner.contact }}</p>
-        <p class="text-gray-600">Latitude: {{ partner.latitude }}</p>
-        <p class="text-gray-600">Longitude: {{ partner.longitude }}</p>
-      </li>
-    </ul>
+    <ul v-else-if="viewMode === 'list'" class="partners-list">
+    <li v-for="partner in partners" :key="partner.id" class="partner-item">
+        <div class="partner-content">
+            <!-- Updated part: Wrapped the name inside an <a> tag with :href binding -->
+            <h3 class="partner-name">
+                <a :href="partner.link" target="_blank" class="partner-link">{{ partner.name }}</a>
+            </h3>
+            <div class="partner-details">
+                <p><i class="fas fa-industry"></i> Type: {{ partner.type }}</p>
+                <p><i class="fas fa-phone"></i> Contact: {{ partner.contact }}</p>
+                <div class="location-info">
+                    <p><i class="fas fa-map-marker-alt"></i> Location:</p>
+                    <p>Lat: {{ partner.latitude }}, Long: {{ partner.longitude }}</p>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>
+
+
 
     <!-- Map View-->
 
@@ -110,36 +120,28 @@
     </div>
 
     <!-- Table view -->
-    <table v-else-if="viewMode === 'table'" class="min-w-full divide-y divide-gray-200">
-      <thead class="bg-indigo-700 text-white p-4">
-        <tr>
-          <th scope="col" class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">Name</th>
-          <th scope="col" class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">Type</th>
-          <th scope="col" class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">Contact</th>
-          <th scope="col" class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">Latitude</th>
-          <th scope="col" class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">Longitude</th>
-        </tr>
-      </thead>
-      <tbody class="bg-gray-900 divide-y divide-indigo-700">
-        <tr v-for="partner in partners" :key="partner.id">
-          <td class="px-6 py-4 whitespace-nowrap">
-            <div class="text-sm text-indigo-100">{{ partner.name }}</div>
-          </td>
-          <td class="px-6 py-4 whitespace-nowrap">
-            <div class="text-sm text-indigo-300">{{ partner.type }}</div>
-          </td>
-          <td class="px-6 py-4 whitespace-nowrap">
-            <div class="text-sm text-indigo-300">{{ partner.contact }}</div>
-          </td>
-          <td class="px-6 py-4 whitespace-nowrap">
-            <div class="text-sm text-indigo-300">{{ partner.latitude }}</div>
-          </td>
-          <td class="px-6 py-4 whitespace-nowrap">
-            <div class="text-sm text-indigo-300">{{ partner.longitude }}</div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+<!-- Table view -->
+<table v-else-if="viewMode === 'table'" class="mt-8 min-w-full bg-white shadow-md rounded-lg overflow-hidden divide-y divide-gray-200">
+  <thead class="bg-indigo-700 text-white">
+    <tr>
+      <th scope="col" class="px-6 py-3 text-left text-sm font-semibold uppercase">Name</th>
+      <th scope="col" class="px-6 py-3 text-left text-sm font-semibold uppercase">Type</th>
+      <th scope="col" class="px-6 py-3 text-left text-sm font-semibold uppercase">Contact</th>
+      <th scope="col" class="px-6 py-3 text-left text-sm font-semibold uppercase">Latitude</th>
+      <th scope="col" class="px-6 py-3 text-left text-sm font-semibold uppercase">Longitude</th>
+    </tr>
+  </thead>
+  <tbody class="divide-y divide-gray-200">
+    <tr v-for="partner in partners" :key="partner.id" class="bg-white hover:bg-gray-100">
+      <td class="px-6 py-4 whitespace-nowrap">{{ partner.name }}</td>
+      <td class="px-6 py-4 whitespace-nowrap">{{ partner.type }}</td>
+      <td class="px-6 py-4 whitespace-nowrap">{{ partner.contact }}</td>
+      <td class="px-6 py-4 whitespace-nowrap">{{ partner.latitude }}</td>
+      <td class="px-6 py-4 whitespace-nowrap">{{ partner.longitude }}</td>
+    </tr>
+  </tbody>
+</table>
+
 </template>
 
 <script>
@@ -211,6 +213,7 @@ export default {
         Contact: ${partner.contact}
         Latitude: ${partner.latitude}
         Longitude: ${partner.longitude}
+        Link: ${partner.link}
       `;
 
       if (typeof window !== 'undefined') {
@@ -248,6 +251,7 @@ export default {
     },
   }
 };
+
 </script>
 
 <style scoped>
@@ -257,4 +261,72 @@ export default {
 .group:hover {
   transform: scale(1.05); /* Adjust the scale factor for the desired zoom effect on hover */
 }
+.partners-list {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.partner-item {
+    background-color: #ebf8ff;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    overflow: hidden;
+}
+
+.partner-item:hover {
+    transform: translateY(-5px);
+}
+
+.partner-content {
+    padding: 1rem;
+    color: #1a202c;
+}
+
+.partner-name {
+    font-size: 1.25rem;
+    color: #2b6cb0;
+    font-weight: bold;
+}
+
+.partner-details p {
+    display: flex;
+    align-items: center;
+    font-size: 0.875rem;
+    color: #4a5568;
+    margin: 0.25rem 0;
+}
+
+.partner-details p i {
+    margin-right: 0.5rem;
+}
+
+.location-info {
+    display: flex;
+    flex-direction: column;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .partner-item {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .partner-item:hover {
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+    }
+}
+.partner-link {
+    color: #2b6cb0; /* Adjust the color to fit your design */
+    text-decoration: none; /* Removes underline from links */
+    transition: color 0.3s ease; /* Smooth color transition for hover effect */
+}
+
+.partner-link:hover, .partner-link:focus {
+    color: #2c5282; /* Darker shade on hover/focus for better visibility */
+    text-decoration: underline; /* Adds underline on hover/focus for clarity */
+}
+
+
 </style>

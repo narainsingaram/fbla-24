@@ -1,8 +1,18 @@
 <template>
-    <div class="join mb-4">
-      <input v-model="userInput" placeholder="Enter your input" class="w-full p-2 border border-gray-300 rounded-md" />
-      <button @click="generateResponse" class="bg-blue-500 text-white py-2 px-4 rounded-md">Go</button>
+  <div class="relative mt-2 fixed bottom-0 left-0 w-full">
+    <div class="w-full mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="relative">
+        <input v-model="userInput" type="text" class="p-4 w-full border-2 border-slate-200 rounded-full text-sm focus:border-blue-200" placeholder="Ask me anything...">
+        <div class="absolute top-1/2 end-2 -translate-y-1/2">
+          <button @click="generateResponse" type="button" class="w-10 h-10 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-full border border-transparent text-gray-500 hover:text-gray-800 bg-gray-100 disabled:opacity-50 disabled:pointer-events-none">
+            <svg class="w-5 h-5 text-slate-600 hover:text-slate-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H8m12 0-4 4m4-4-4-4M9 4H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h2"/>
+            </svg>
+          </button>
+        </div>
+      </div>
     </div>
+  </div>
     <div>
     </div>
     <div v-if="loading" class="mt-6">
@@ -17,33 +27,11 @@
         <span class="sr-only">Loading...</span>
     </div>
     </div>
-    <div v-else-if="generatedContent" class="mt-6">
+    <div v-else-if="generatedContent" class="mt-6 flex justify-center items-center">
       <!-- Display generated content when available -->
-      <div class="chat chat-start">
-        <div class="chat-image avatar">
-          <div class="w-10 rounded-full">
-            <img alt="User Avatar" src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-          </div>
-        </div>
-        <div class="chat-header">
-          User
-          <time class="text-xs opacity-50">{{ getCurrentTime() }}</time>
-        </div>
-        <div class="chat-bubble">{{ userInput }}</div>
+        <div role="alert" class="alert bg-blue-400 text-blue-100 mx-4 text-center">{{ generatedContent }}</div>
       </div>
-      <div class="chat chat-end">
-        <div class="chat-image avatar">
-          <div class="w-10 rounded-full">
-            <img alt="Bot Avatar" src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-          </div>
-        </div>
-        <div class="chat-header">
-          AI Bot
-          <time class="text-xs opacity-50">{{ getCurrentTime() }}</time>
-        </div>
-        <div class="chat-bubble">{{ generatedContent }}</div>
-      </div>
-    </div>
+      
 </template>
 
 <script>

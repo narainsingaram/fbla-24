@@ -93,6 +93,7 @@ export default {
           },
           responsive: true,
           maintainAspectRatio: false,
+          
         }
       });
     }
@@ -103,12 +104,13 @@ export default {
 <style>
 /* Styling for the chart container */
 .chart-container {
-  width: 100%; /* Adjust the width as needed */
-  height: 500px; /* Adjust the height to fit your design */
+  width: 110vh; /* Adjust the width as needed */
+  height: 600px; /* Adjust the height to fit your design */
   padding: 20px;
   background-color: #f5f5f5; /* Light grey background */
   border-radius: 8px; /* Rounded corners for the container */
   box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow for depth */
   margin: auto; /* Center the chart container if within a flexible layout */
+  margin-left: 150px;
 }
 </style>
