@@ -1,6 +1,8 @@
 <template>
-  <div class="chart-container">
-    <canvas ref="chart"></canvas>
+  <div class="card">
+    <div class="card-body">
+      <canvas ref="chart"></canvas>
+    </div>
   </div>
 </template>
 
@@ -102,15 +104,20 @@ export default {
 </script>
 
 <style>
-/* Styling for the chart container */
-.chart-container {
-  width: 110vh; /* Adjust the width as needed */
-  height: 600px; /* Adjust the height to fit your design */
-  padding: 20px;
-  background-color: #f5f5f5; /* Light grey background */
-  border-radius: 8px; /* Rounded corners for the container */
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow for depth */
-  margin: auto; /* Center the chart container if within a flexible layout */
-  margin-left: 150px;
+/* Styling for the card */
+.card {
+  width: 100%; /* Adjust the width as needed */
+  border: 1px solid #e2e8f0; /* Border color */
+  border-radius: 0.5rem; /* Rounded corners */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
+}
+
+.card-body {
+  padding: 1.25rem; /* Padding inside the card */
+}
+
+canvas {
+  width: 100%; /* Make the canvas responsive */
+  height: auto; /* Allow height to adjust according to width */
 }
 </style>

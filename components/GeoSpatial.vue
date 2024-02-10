@@ -6,8 +6,6 @@
     </div>
   </div>
 </template>
-
-  
   
   <script>
   import businessData from '@/backup.json'; // Import the JSON data from backup.json

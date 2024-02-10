@@ -1,23 +1,22 @@
 <template>
-    <div data-theme="cupcake">
-      <Header></Header>
-      <div class="min-h-screen flex flex-col items-center justify-center">
-        <!-- Header for the first graph -->
-        <h1 class="text-3xl font-semibold mb-4">Graph 1</h1>
-  
-        <!-- Container for the first graph with increased size -->
-        <div class="bg-white p-8 rounded-lg shadow-md mb-8">
+  <div data-theme="cupcake">
+    <Header></Header>
+    <div class="min-h-screen flex flex-col items-center justify-center px-4">
+      <!-- First graph -->
+      <div class="max-w-xl w-full m-4 mb-8">
+        <h1 class="text-3xl font-semibold mb-4 text-center">Organization Types Bar Graph</h1>
+        <div class="bg-white p-6 rounded-lg shadow-md">
           <Graph />
         </div>
-  
-        <!-- Header for the second graph -->
-        <h1 class="text-3xl font-semibold mb-4">Graph 2</h1>
-  
-        <!-- Container for the second graph with increased size -->
-        <div class="bg-white p-8 rounded-lg shadow-md">
+      </div>
+      
+      <!-- Second graph -->
+      <div class="max-w-xl w-full m-4">
+        <h1 class="text-3xl font-semibold mb-4 text-center">Organization Locations Scatterplot</h1>
+        <div class="bg-white p-6 rounded-lg shadow-md">
           <ScatterLatLong></ScatterLatLong>
         </div>
       </div>
     </div>
-  </template>
-  
+  </div>
+</template>
