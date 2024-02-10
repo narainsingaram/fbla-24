@@ -2,7 +2,7 @@
   <div class="flex justify-center items-center h-full">
     <div class="w-full h-full">
       <h1 class="text-center text-black text-4xl mb-6">Map of Community Organizations/Businesses</h1>
-      <div ref="map" class="w-full h-screen"></div>
+      <div ref="map" class="w-full h-screen rounded-xl"></div>
     </div>
   </div>
 </template>
@@ -49,16 +49,19 @@
             title: business.name
           });
           const contentString = `
-        <div class="info-window-content" style="font-family: Arial, sans-serif; overflow-hidden">
-            <h2 style="margin-top: 0;">${business.name}</h2>
-            ${business.image ? `<img src="${business.image}" alt="${business.name}" style="max-width: 100%; height: auto; margin-bottom: 8px;">` : ''}
-            <p><strong>Type:</strong> ${business.type}</p>
-            <p style="text-align: justify;"><strong>Description:</strong> ${business.description}</p>
-            <p><strong>Contact:</strong> ${business.contact}</p>
-            ${business.link ? `<p><a href="${business.link}" target="_blank" style="color: #007bff;">Visit Website</a></p>` : ''}
-            <p><small>Lat: ${latitude}, Lng: ${longitude}</small></p>
-        </div>
-        `;
+  <div class="info-window-content flex font-sans overflow-hidden">
+    ${business.image ? `<img src="${business.image}" alt="${business.name}" class="w-24 mask mask-squircle rounded-xl h-auto mb-2 mr-4 self-center">` : ''}
+    <div>
+      <h2 class="text-xl font-bold mt-0 mb-1">${business.name}</h2>
+      <span class='badge items-center'>${business.type}</span>
+      <p role="alert" class="alert bg-slate-200 alert-info my-2"> Description: <br> ${business.description}</p>
+      <p class="mb-2"><strong>Contact:</strong> ${business.contact}</p>
+      ${business.link ? `<p><a href="${business.link}" target="_blank" class="text-blue-600 hover:underline">Visit Website</a></p>` : ''}
+      <p class="text-sm"><small>Lat: ${latitude}, Lng: ${longitude}</small></p>
+    </div>
+  </div>
+`;
+
 
         const infowindow = new google.maps.InfoWindow({
             content: contentString
