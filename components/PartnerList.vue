@@ -1,21 +1,36 @@
 <template>
       <ul class="mt-8 flex flex-col justify-center items-center sm:flex-row">
         <li class="inline-flex items-center gap-x-2.5 py-3 px-4 text-sm font-medium bg-white border border-gray-200 text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ms-px sm:mt-0 sm:first:rounded-se-none sm:first:rounded-es-lg sm:last:rounded-es-none sm:last:rounded-se-lg">
-          <svg class="flex-shrink-0 w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"/><path d="M12 12v9"/><path d="m8 17 4 4 4-4"/></svg>
+          <svg class="flex-shrink-0 w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+            <path fill="none" d="M7.228,11.464H1.996c-0.723,0-1.308,0.587-1.308,1.309v5.232c0,0.722,0.585,1.308,1.308,1.308h5.232
+		c0.723,0,1.308-0.586,1.308-1.308v-5.232C8.536,12.051,7.95,11.464,7.228,11.464z M7.228,17.351c0,0.361-0.293,0.654-0.654,0.654
+		H2.649c-0.361,0-0.654-0.293-0.654-0.654v-3.924c0-0.361,0.292-0.654,0.654-0.654h3.924c0.361,0,0.654,0.293,0.654,0.654V17.351z
+		 M17.692,11.464H12.46c-0.723,0-1.308,0.587-1.308,1.309v5.232c0,0.722,0.585,1.308,1.308,1.308h5.232
+		c0.722,0,1.308-0.586,1.308-1.308v-5.232C19,12.051,18.414,11.464,17.692,11.464z M17.692,17.351c0,0.361-0.293,0.654-0.654,0.654
+		h-3.924c-0.361,0-0.654-0.293-0.654-0.654v-3.924c0-0.361,0.293-0.654,0.654-0.654h3.924c0.361,0,0.654,0.293,0.654,0.654V17.351z
+		 M7.228,1H1.996C1.273,1,0.688,1.585,0.688,2.308V7.54c0,0.723,0.585,1.308,1.308,1.308h5.232c0.723,0,1.308-0.585,1.308-1.308
+		V2.308C8.536,1.585,7.95,1,7.228,1z M7.228,6.886c0,0.361-0.293,0.654-0.654,0.654H2.649c-0.361,0-0.654-0.292-0.654-0.654V2.962
+		c0-0.361,0.292-0.654,0.654-0.654h3.924c0.361,0,0.654,0.292,0.654,0.654V6.886z M17.692,1H12.46c-0.723,0-1.308,0.585-1.308,1.308
+		V7.54c0,0.723,0.585,1.308,1.308,1.308h5.232C18.414,8.848,19,8.263,19,7.54V2.308C19,1.585,18.414,1,17.692,1z M17.692,6.886
+		c0,0.361-0.293,0.654-0.654,0.654h-3.924c-0.361,0-0.654-0.292-0.654-0.654V2.962c0-0.361,0.293-0.654,0.654-0.654h3.924
+		c0.361,0,0.654,0.292,0.654,0.654V6.886z"></path>
+            </svg>
           <button
           @click="changeView('grid')"
-          :class="{ 'text-indigo-600 font-semibold': viewMode === 'grid' }"
-          class="transition-transform transform hover:rounded-xl hover:scale-110 hover:text-indigo-700"
+          :class="{ 'text-indigo-600 font-semibold underline': viewMode === 'grid' }"
+          class="transition-transform transform hover:rounded-xl hover:scale-110 hover:text-green-600 "
         >
-          Grid
+          Card
         </button>
         </li>
         <li class="inline-flex items-center gap-x-2.5 py-3 px-4 text-sm font-medium bg-white border border-gray-200 text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ms-px sm:mt-0 sm:first:rounded-se-none sm:first:rounded-es-lg sm:last:rounded-es-none sm:last:rounded-se-lg">
-          <svg class="flex-shrink-0 w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"/><path d="M12 12v9"/><path d="m8 17 4 4 4-4"/></svg>
-          <button
-          @click="changeView('list')"
+          <svg class="flex-shrink-0 w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18.6 18.6" fill="none" stroke="currentColor" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M10,1.529c-4.679,0-8.471,3.792-8.471,8.471c0,4.68,3.792,8.471,8.471,8.471c4.68,0,8.471-3.791,8.471-8.471C18.471,5.321,14.68,1.529,10,1.529 M10,17.579c-4.18,0-7.579-3.399-7.579-7.579S5.82,2.421,10,2.421S17.579,5.82,17.579,10S14.18,17.579,10,17.579 M14.348,10c0,0.245-0.201,0.446-0.446,0.446h-5c-0.246,0-0.446-0.201-0.446-0.446s0.2-0.446,0.446-0.446h5C14.146,9.554,14.348,9.755,14.348,10 M14.348,12.675c0,0.245-0.201,0.446-0.446,0.446h-5c-0.246,0-0.446-0.201-0.446-0.446s0.2-0.445,0.446-0.445h5C14.146,12.229,14.348,12.43,14.348,12.675 M7.394,10c0,0.245-0.2,0.446-0.446,0.446H6.099c-0.245,0-0.446-0.201-0.446-0.446s0.201-0.446,0.446-0.446h0.849C7.194,9.554,7.394,9.755,7.394,10 M7.394,12.675c0,0.245-0.2,0.446-0.446,0.446H6.099c-0.245,0-0.446-0.201-0.446-0.446s0.201-0.445,0.446-0.445h0.849C7.194,12.229,7.394,12.43,7.394,12.675 M14.348,7.325c0,0.246-0.201,0.446-0.446,0.446h-5c-0.246,0-0.446-0.2-0.446-0.446c0-0.245,0.2-0.446,0.446-0.446h5C14.146,6.879,14.348,7.08,14.348,7.325 M7.394,7.325c0,0.246-0.2,0.446-0.446,0.446H6.099c-0.245,0-0.446-0.2-0.446-0.446c0-0.245,0.201-0.446,0.446-0.446h0.849C7.194,6.879,7.394,7.08,7.394,7.325"></path>          
+          </svg>  
+            <button
+            @click="changeView('list')"
           :class="{ 'text-indigo-600 font-semibold underline': viewMode === 'list' }"
-          class=""
+          class="transition-transform transform hover:rounded-xl hover:scale-110 hover:text-green-600"
         >
           List
         </button>
@@ -25,8 +40,9 @@
           <button
           @click="changeView('table')"
           :class="{ 'text-indigo-600 font-semibold underline': viewMode === 'table' }"
+          class="transition-transform transform hover:rounded-xl hover:scale-110 hover:text-green-600 "
         >
-          Table
+          Directory
         </button>
         </li>
       </ul>
@@ -39,20 +55,24 @@
               <img :src="partner.image" alt="Partner Image" class="w-full h-full object-cover">
             </div>
             <div class="p-4 md:p-6">
-            <a :href="partner.link" target="_blank" style="text-decoration: none; color: inherit;">
-              <span class="block mb-1 text-xs font-semibold uppercase text-blue-600">
-                {{ partner.type }}
-              </span>
-              <h3 class="text-xl font-semibold text-gray-800">
-                {{ partner.name }}
-              </h3>
-              <p class="mt-3 text-black">
-                {{ partner.description }}
-              </p>
-          </a>
-            </div>
+  <a :href="partner.link" target="_blank" style="text-decoration: none; color: inherit;">
+    <span :class="{
+      'text-green-500': partner.type === 'Non-Profit Organization',
+      'text-yellow-500': partner.type === 'Restaurant',
+      'text-red-500': partner.type === 'Attraction'
+    }" class="block mb-1 text-xs font-semibold uppercase">
+      {{ partner.type }}
+    </span>
+    <h3 class="text-xl font-semibold text-gray-800">
+      {{ partner.name }}
+    </h3>
+    <p class="mt-3 text-black">
+      {{ partner.description }}
+    </p>
+  </a>
+</div>
             <div class="mt-auto flex border-t border-gray-200 divide-x divide-gray-200">
-              <a :href="'#my_modal_' + partner.id" class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-es-xl bg-emerald-300 text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none">
+              <a :href="'#my_modal_' + partner.id" class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-es-xl bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none">
                 View in Detail
               </a>
               <button @click="exportPartner(partner)" class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-ee-xl bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none">
@@ -125,19 +145,14 @@
   <thead class="bg-indigo-700 text-white">
     <tr>
       <th scope="col" class="px-6 py-3 text-left text-sm font-semibold uppercase">Name</th>
-      <th scope="col" class="px-6 py-3 text-left text-sm font-semibold uppercase">Type</th>
       <th scope="col" class="px-6 py-3 text-left text-sm font-semibold uppercase">Contact</th>
-      <th scope="col" class="px-6 py-3 text-left text-sm font-semibold uppercase">Latitude</th>
-      <th scope="col" class="px-6 py-3 text-left text-sm font-semibold uppercase">Longitude</th>
+      <th scope="col" class="px-6 py-3 text-left text-sm font-semibold uppercase">Address</th>
     </tr>
   </thead>
   <tbody class="divide-y divide-gray-200">
     <tr v-for="partner in partners" :key="partner.id" class="bg-white hover:bg-gray-100">
       <td class="px-6 py-4 whitespace-nowrap">{{ partner.name }}</td>
-      <td class="px-6 py-4 whitespace-nowrap">{{ partner.type }}</td>
       <td class="px-6 py-4 whitespace-nowrap">{{ partner.contact }}</td>
-      <td class="px-6 py-4 whitespace-nowrap">{{ partner.latitude }}</td>
-      <td class="px-6 py-4 whitespace-nowrap">{{ partner.longitude }}</td>
     </tr>
   </tbody>
 </table>
@@ -261,6 +276,12 @@ export default {
 .group:hover {
   transform: scale(1.05); /* Adjust the scale factor for the desired zoom effect on hover */
 }
+
+.group {
+  border: 2px solid transparent; /* Add a transparent border */
+  transition: border-color 0.3s ease; /* Smooth transition for border color change */
+}
+
 .partners-list {
     margin-top: 2rem;
     display: flex;
