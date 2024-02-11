@@ -9,13 +9,13 @@ const client = new TextServiceClient({
 });
 
 const input = 'hello there';
-const promptString = `You are an AI Assistant that helps provide information for users in the following app prompt, KEEP RESPONSES BRIEF:
+const promptString = `You are an AI Assistant that helps provide information for users in the following app prompt:
 
 " a program that allows your school’s Career and Technical Education Department to
 collect and store information about local business and community partners. This program
 should include information on at least 25 different partners, with details such as, but not
 limited to, type of organization, resources available, and direct contact information for an
-individual. The program should enable users to search and filter the information as needed. KEEP RESPONSES BRIEF"
+individual. The program should enable users to search and filter the information as needed."
 
 So, you should provide any information that the user queries for but make sure it relates to the idea of the app ${input}`;
 const stopSequences = [];

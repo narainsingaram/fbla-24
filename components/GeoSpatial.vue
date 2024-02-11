@@ -54,9 +54,8 @@
       <span class='badge items-center'>${business.type}</span>
       <p role="alert" class="alert bg-slate-200 alert-info my-2"> Description: <br> ${business.description}</p>
       <p class="mb-2"><strong>Contact:</strong> ${business.contact}</p>
-      <p class="mb-2"><strong>Address:</strong> ${business.address}</p>
       ${business.link ? `<p><a href="${business.link}" target="_blank" class="text-blue-600 hover:underline">Visit Website</a></p>` : ''}
-      
+      <p class="text-sm"><small>Lat: ${latitude}, Lng: ${longitude}</small></p>
     </div>
   </div>
 `;

@@ -11,38 +11,8 @@
                 "description": "A 501c3 charitable organization that provides resources to the black, brown & LGBTQ+ communities. Our focus is homelessness, financial literacy, food initiative & domestic violence awareness. We service men, women, families & teens in the Atlanta Georgia. ",
                 "image": "https://givebutter.s3.amazonaws.com/profiles/L8kG1J2wlzyj83LbDuFcfzoXKjbmVXqtOtirGza6.jpg",
                 "link": "https://buildingupthecommunity.org/",
-                "address": "11720 Amber Park Dr Suite 160, Alpharetta, GA 30009",
                 "__collections__": {}
             },
-
-            "Homestead": {
-                "image": "https://s3-media0.fl.yelpcdn.com/bphoto/lBA27K9AOHfj_H-sURdW9A/o.jpg",
-                "address": "420 Vision Dr Ste A101 Cumming, GA 30040",
-                "contact": "Phone number (470) 835-2316",
-                "latitude": 34.21722024752088,
-                "link": "Business website homesteadga.com",
-                "name": "Homestead",
-                "description": "“Where American Food Comes From Is Just As Important To Me As To Where It Is Headed. And It’s A Beautiful Thing To Do Both” – CHEF DAVID J.SMITH",
-                "id": "18",
-                "type": "Restaurant",
-                "longitude": -84.14608914517375,
-                "__collections__": {}
-            },
-
-            "World of Coca-Cola": {
-                "image": "https://lh3.googleusercontent.com/proxy/_NlCt3GwcbbiVNHZJkLR0YYAwLlgwh93aUsMAyTsj6TruCjrVNbqtz4hj-4bI3NQY271LDEFC5tzp4abYE4bgIz4_R6k3oHjbcu0f_PNyUxwBT-177eJDpaDrNUZLfsdrpqqi4XV2mYzH5qk849p8R0hrd-ZdEE=s680-w680-h510",
-                "contact": "(404) 676-5151",
-                "latitude": 33.76256529266647,
-                "name": "World of Coca-Cola",
-                "description": "At World of Coca-Cola, you will experience the world's most famous beverage in a dynamic, multimedia attraction where moments of happiness and wonder can be found around every corner.",
-                "type": "Attraction",
-                "longitude": -84.39246818936861,
-                "id": 16,
-                "link": "https://www.worldofcoca-cola.com/",
-                "address": "121 Baker St NW, Atlanta, GA 30313",
-                "__collections__": {}
-            },
-
             "Computer Museum of America": {
                 "contact": "(770) 695-0651",
                 "name": "Computer Museum of America",
@@ -53,7 +23,6 @@
                 "latitude": 34.038715716496306,
                 "image": "https://lh3.googleusercontent.com/p/AF1QipNsuwXhPjjkXarOxHt4Gu8H_GtT5fUQUqyIyg6j=s680-w680-h510",
                 "link": "https://www.computermuseumofamerica.org/",
-                "address": "5000 Commerce Pkwy, Roswell, GA 30076",
                 "__collections__": {}
             },
             "Food For Thought": {
@@ -66,20 +35,6 @@
                 "longitude": -84.13780425318838,
                 "image": "https://s3.amazonaws.com/htw/dt-contest-entries/9918/canada-youth-social-work-food-logo-design.jpg",
                 "link": "https://fftpinc.org/",
-                "address": "2625 Hopewell Plantation Dr, Alpharetta, GA 30004",
-                "__collections__": {}
-            },
-            "Fox Theatre": {
-                "image": "https://lh3.googleusercontent.com/proxy/Osy2yHSpjEVLTRynLV4bLwePxGkgcgufDhs1bLn5xybeGzwpcIXfe3K1ZvGqzq8wF00Q_CvB0hhMHLlYq5SIotDYIznENBp_sKXrO5Bq1-SKuZJhS5lrGJGFalYgOv740b5mPShuBInDS5jnn-qQlKAmttzMqko=s680-w680-h510",
-                "address": "660 Peachtree St NE, Atlanta, GA 30308",
-                "contact": "(855) 285-8499",
-                "latitude": 33.77273574999071,
-                "link": "https://www.foxtheatre.org/",
-                "name": "Fox Theatre",
-                "description": "The Fox Theatre, a former movie palace, is a performing arts venue located at 660 Peachtree Street NE in Midtown Atlanta, Georgia, and is the centerpiece of the Fox Theatre Historic District. The theater was originally planned as part of a large Shrine Temple as evidenced by its Moorish design",
-                "id": 25,
-                "type": "Attraction",
-                "longitude": -84.3856405085343,
                 "__collections__": {}
             },
             "Gardenia Mediterranean Restaurant": {
@@ -92,33 +47,6 @@
                 "name": "Gardenia Mediterranean Restaurant",
                 "type": "Restaurant",
                 "link": "https://www.gardeniarestaurant.com/",
-                "address": "4335 Bethelview Rd, Cumming, GA 30040",
-                "__collections__": {}
-            },
-            "Georgia Aquarium": {
-                "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Georgia_Aquarium_Jan_2006.jpg/440px-Georgia_Aquarium_Jan_2006.jpg",
-                "address": "225 Baker St NW, Atlanta, GA 30313",
-                "contact": "(404) 581-4000",
-                "latitude": 33.76292649511476,
-                "link": "https://www.georgiaaquarium.org/",
-                "name": "Georgia Aquarium",
-                "description": "Georgia Aquarium is a public aquarium in Atlanta, Georgia, United States. It exhibits hundreds of species and thousands of animals across its seven major galleries, all of which reside in more than 11 million US gallons of water.",
-                "id": 22,
-                "type": "Attraction",
-                "longitude": -84.39477020656854,
-                "__collections__": {}
-            },
-            "Old Harbor Seafood Kitchen": {
-                "image": "https://s3-media0.fl.yelpcdn.com/bphoto/uCizf--XseAorhaax4MNaw/o.jpg",
-                "address": "911 Market Place Blvd Cumming, GA 30041",
-                "contact": "(470) 560-0999",
-                "latitude": 34.18186434871745,
-                "link": "https://www.oldharborkitchen.com/",
-                "name": "Old Harbor Seafood Kitchen",
-                "description": "Welcome to Old Harbor where the atmosphere is great and fresh seafood is never hard to come by. Treat yourself to delicious seafood boils, fried baskets and more with speciality dishes you won't see anywhere else.    Perfect for any occasion, dining in or out, Old Harbor is sure to satisfy your seafood cravings.",
-                "id": 17,
-                "type": "Restaurant",
-                "longitude": -84.13392351627735,
                 "__collections__": {}
             },
             "Gwinnett Environmental & Heritage Center": {
@@ -131,7 +59,6 @@
                 "longitude": -84.00462548935981,
                 "description": "Interactive hands-on exhibits, U.S. Green Building Council Design Strategies, Community rooms, Catering kitchen, Rental rooms, Chesser-Williams Historic House and Ivy Creek Greenway (5.45 miles).",
                 "link": "https://www.gwinnettcounty.com/web/gwinnett/departments/communityservices/parksandrecreation/ourparksandfacilities/guidetoyourparks/gwinnettenvironmentalandheritagecenter",
-                "address": "Gwinnett Environmental & Heritage Center, 2020 Clean Water Dr, Buford, GA 30519",
                 "__collections__": {}
             },
             "Ice Cream Social": {
@@ -144,20 +71,6 @@
                 "type": "Restaurant",
                 "longitude": "-84.21933126661874",
                 "link": "https://www.instagram.com/icecreamsocial.forsyth/",
-                "address": "5071 Post Rd # 301, Cumming, GA 30040",
-                "__collections__": {}
-            },
-            "Meadow Woodfire Grill": {
-                "image": "https://s3-media0.fl.yelpcdn.com/bphoto/Doa6iTWEyKYzv3Td6iUdnA/o.jpg",
-                "address": "101 Meadow Dr Cumming, GA 31037",
-                "contact": "(770) 888-1998",
-                "latitude": 34.20112739613278,
-                "link": "https://www.meadowgrill.com/",
-                "name": "Meadow Woodfire Grill",
-                "description": "Prime steaks and fine American fare cooked over a live fire in the heart of Cumming",
-                "id": 19,
-                "type": "Restaurant",
-                "longitude": -84.13551023168316,
                 "__collections__": {}
             },
             "Meals By Grace": {
@@ -170,20 +83,6 @@
                 "description": "Meals by Grace meets weekly to create a hot meal and distribute all donated food supplies to children and their families recommended to us by the school social workers. These meals and additional food stuffs are delivered to the children who have no access to food pantries or other meals due to lack of transportation.",
                 "image": "https://bloximages.newyork1.vip.townnews.com/northfulton.com/content/tncms/assets/v3/editorial/7/62/7624a9c2-79f2-11ea-9c67-d3ee18ad2894/5e8e62b063a7f.image.png?resize=400%2C400",
                 "link": "https://mealsbygrace.org/",
-                "address": "Behind Hollywood Feed, 3540 Keith Bridge Rd, Cumming, GA 30041",
-                "__collections__": {}
-            },
-            "National Center for Civil and Human Rights": {
-                "image": "https://lh3.googleusercontent.com/p/AF1QipObxy23eunfyexQWJznYbcVPrNCEK_5TTwN6qbd=s680-w680-h510",
-                "address": "100 Ivan Allen Jr Blvd NW, Atlanta, GA 30313",
-                "contact": "(678) 999-8990",
-                "latitude": 33.764163665112946,
-                "link": "https://www.civilandhumanrights.org/",
-                "name": "National Center for Civil and Human Rights",
-                "description": " The National Center for Civil and Human Rights is a museum dedicated to the achievements of the civil rights movement in the United States and the broader worldwide human rights movement. Located in downtown Atlanta, Georgia, the museum opened to the public on June 23, 2014.",
-                "id": 24,
-                "type": "Attraction",
-                "longitude": -84.39324460859949,
                 "__collections__": {}
             },
             "Northeast Georgia History Center": {
@@ -196,33 +95,6 @@
                 "longitude": -83.82488963168016,
                 "type": "Attraction",
                 "link": "https://www.negahc.org/",
-                "address": "322 Academy St NE, Gainesville, GA 30501",
-                "__collections__": {}
-            },
-            "Q Korean Steak House": {
-                "image": "https://s3-media0.fl.yelpcdn.com/bphoto/dz9I0LXQv5sMmMmCYvSLMQ/o.jpg",
-                "address": "872 Buford Rd Cumming, GA 30041",
-                "contact": "Phone number (770) 406-8441",
-                "latitude": 34.182782206328504,
-                "link": "qkoreansteakhouse.com",
-                "name": "Q Korean Steak House",
-                "description": "We are a new Korean Bbq spot in Cumming, GA. We serve all you can eat selections including beef, pork, chicken, and shrimp.",
-                "id": 21,
-                "type": "Restaurant",
-                "longitude": -84.13538137401106,
-                "__collections__": {}
-            },
-            "Rendezvous Cafe": {
-                "image": "https://s3-media0.fl.yelpcdn.com/bphoto/JEiRE2dFqSnbHGqB3c1rww/o.jpg",
-                "address": "543 Lakeland Plz Cumming, GA 30040",
-                "contact": "(470) 297-3739",
-                "latitude": 34.18559355100071,
-                "link": "Business website rendezvouscafega.com",
-                "name": "Rendezvous Cafe",
-                "description": "Rendezvous Cafe is a family-owned cafe that offers a variety of brunch items & handcrafted drinks. We also offer different dessert options (homemade!) such as macarons, Cream Puffs, as well as gluten-free pastries.",
-                "id": 20,
-                "type": "Restaurant",
-                "longitude": -84.1442435470289,
                 "__collections__": {}
             },
             "Rise Against Hunger": {
@@ -235,7 +107,6 @@
                 "contact": "(919) 839-8971",
                 "description": "In 1998, envisioning a world without hunger, Ray Buchanan - a United Methodist  minister - founded Stop Hunger. Driving Rise Against Hunger’s work is the recognition that ending hunger is more than just feeding people, which led Rise Against Hunger to focus its feeding programs in areas where we can have a real impact and expand its hunger-fighting programs beyond meal packaging and distribution.",
                 "link": "https://www.riseagainsthunger.org/",
-                "address": "1000 Williams Dr Suite 1022, Marietta, GA 30066",
                 "__collections__": {}
             },
             "Senior Services North Fulton": {
@@ -248,7 +119,6 @@
                 "latitude": 34.05793696997765,
                 "longitude": -84.23624735618444,
                 "link": "https://ssnorthfulton.org/",
-                "address": "11381 Southbridge Pkwy, Alpharetta, GA 30022",
                 "__collections__": {}
             },
             "Six Flags Over Georgia": {
@@ -261,7 +131,6 @@
                 "name": "Six Flags Over Georgia",
                 "type": "Attraction",
                 "link": "https://www.sixflags.com/overgeorgia",
-                "address": "275 Riverside Pkwy, Austell, GA 30168",
                 "__collections__": {}
             },
             "Southeastern Railway Museum": {
@@ -274,7 +143,6 @@
                 "type": "Attraction",
                 "longitude": "-84.15493284518043",
                 "link": "https://www.train-museum.org/",
-                "address": "3595 Buford Hwy, Duluth, GA 30096",
                 "__collections__": {}
             },
             "Tam's Backstage": {
@@ -287,7 +155,6 @@
                 "type": "Restaurant",
                 "longitude": -84.13626852105642,
                 "link": "https://tamsbackstage.com/",
-                "address": "215 Ingram Ave, Cumming, GA 30040",
                 "__collections__": {}
             },
             "The Taste Street": {
@@ -300,7 +167,6 @@
                 "type": "Restaurant",
                 "longitude": -84.13907926369322,
                 "link": "https://www.thetastestreets.com/",
-                "address": "125 Tribble Gap Rd 101 - 102, Cumming, GA 30040",
                 "__collections__": {}
             },
             "Village Burger": {
@@ -313,20 +179,18 @@
                 "type": "Restaurant",
                 "longitude": -84.14079080520916,
                 "link": "https://villageburger.com/",
-                "address": "101 W Courthouse Square, Cumming, GA 30040",
                 "__collections__": {}
             },
-            "Zoo Atlanta": {
-                "image": "https://lh3.googleusercontent.com/p/AF1QipM1BFOM1tScB71t0MAHkSREXgjLYd3xWdwXjDpW=s680-w680-h510",
-                "address": "800 Cherokee Ave SE, Atlanta, GA 30315",
-                "contact": "(404) 624-5600",
-                "latitude": 33.733752560354105,
-                "link": "https://zooatlanta.org/",
-                "name": "Zoo Atlanta",
-                "description": "Zoo Atlanta is an Association of Zoos and Aquariums accredited zoological park in Atlanta, Georgia. The current president and CEO of Zoo Atlanta is Raymond B. King",
-                "id": 23,
+            "World of Coca-Cola": {
+                "image": "https://lh3.googleusercontent.com/proxy/_NlCt3GwcbbiVNHZJkLR0YYAwLlgwh93aUsMAyTsj6TruCjrVNbqtz4hj-4bI3NQY271LDEFC5tzp4abYE4bgIz4_R6k3oHjbcu0f_PNyUxwBT-177eJDpaDrNUZLfsdrpqqi4XV2mYzH5qk849p8R0hrd-ZdEE=s680-w680-h510",
+                "contact": "(404) 676-5151",
+                "latitude": 33.76256529266647,
+                "name": "World of Coca-Cola",
+                "description": "At World of Coca-Cola, you will experience the world's most famous beverage in a dynamic, multimedia attraction where moments of happiness and wonder can be found around every corner.",
                 "type": "Attraction",
-                "longitude": -84.37183280882954,
+                "longitude": -84.39246818936861,
+                "id": 16,
+                "link": "https://www.worldofcoca-cola.com/",
                 "__collections__": {}
             }
         }

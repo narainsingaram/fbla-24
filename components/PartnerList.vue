@@ -50,7 +50,7 @@
       <div v-if="viewMode === 'grid'" class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           <!-- Card Blog -->
-          <div v-for="partner in displayedPartners" :key="partner.id" class="group flex flex-col h-full bg-slate-100 border-4 border-black-200 shadow-sm rounded-xl transition duration-300 ease-in-out transform hover:shadow-lg">
+          <div v-for="partner in displayedPartners" :key="partner.id" class="group flex flex-col h-full bg-slate-50 border-4 border-black-200 shadow-sm rounded-xl transition duration-300 ease-in-out transform hover:shadow-lg">
             <div class="h-52 relative rounded-t-xl overflow-hidden">
               <img :src="partner.image" alt="Partner Image" class="w-full h-full object-cover">
             </div>
@@ -63,7 +63,7 @@
               }" class="block mb-1 text-xs font-semibold uppercase">
                 {{ partner.type }}
               </span>
-              <h3 class="transition-transform transform hover:rounded-xl hover:scale-105 hover:text-green-600  text-xl font-semibold text-gray-800">
+              <h3 class="text-xl font-semibold text-gray-800">
                 {{ partner.name }}
               </h3>
               <p class="mt-3 text-black">
@@ -93,7 +93,6 @@
               <p class="py-2">Type: {{ partner.type }}</p>
               <p class="py-2">Description: {{ partner.description }}</p>
               <p class="py-2">Contact: {{ partner.contact }}</p>
-              <p class="py-2">Address: {{ partner.address }}</p>
               <u><a :href="partner.link" target="_blank" style="text-decoration: none; color:blue;">{{ partner.name }}</a></u> <!-- Make the name clickable -->
               <!-- Add more details as needed -->
               <div class="bg-slate-200 p-4 my-4 rounded-2xl relative">
@@ -123,8 +122,8 @@
                 <p><i class="fas fa-industry"></i> Type: {{ partner.type }}</p>
                 <p><i class="fas fa-phone"></i> Contact: {{ partner.contact }}</p>
                 <div class="location-info">
-                    <p><i class="fas fa-map-marker-alt"></i> Location: {{ partner.address }}</p>
-                    
+                    <p><i class="fas fa-map-marker-alt"></i> Location:</p>
+                    <p>Lat: {{ partner.latitude }}, Long: {{ partner.longitude }}</p>
                 </div>
             </div>
         </div>
@@ -153,7 +152,6 @@
     <tr v-for="partner in partners" :key="partner.id" class="bg-white hover:bg-gray-100">
       <td class="px-6 py-4 whitespace-nowrap">{{ partner.name }}</td>
       <td class="px-6 py-4 whitespace-nowrap">{{ partner.contact }}</td>
-      <td class="px-6 py-4 whitespace-nowrap">{{ partner.address }}</td>
     </tr>
   </tbody>
 </table>
@@ -346,17 +344,6 @@ export default {
 }
 
 .partner-link:hover, .partner-link:focus {
-    color: #2c5282; /* Darker shade on hover/focus for better visibility */
-    text-decoration: underline; /* Adds underline on hover/focus for clarity */
-}
-
-.partner-address {
-    color: #2b6cb0; /* Adjust the color to fit your design */
-    text-decoration: none; /* Removes underline from links */
-    transition: color 0.3s ease; /* Smooth color transition for hover effect */
-}
-
-.partner-address:hover, .partner-address:focus {
     color: #2c5282; /* Darker shade on hover/focus for better visibility */
     text-decoration: underline; /* Adds underline on hover/focus for clarity */
 }
