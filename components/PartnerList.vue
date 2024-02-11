@@ -85,6 +85,9 @@
       </div>
       
       <!-- Modal outside of the loop -->
+
+      hi
+      
       <div v-if="viewMode === 'grid'">
         <div v-for="partner in displayedPartners" :key="'modal_' + partner.id">
           <div :id="'my_modal_' + partner.id" class="modal flex items-center justify-center bg-black bg-opacity-50 fixed inset-0 z-50">
