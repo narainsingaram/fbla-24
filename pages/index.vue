@@ -5,6 +5,7 @@
       <!-- Content -->
   <div class="w-full pt-10 px-4 sm:px-6 md:px-8 lg:ps-72">
     <!-- Page Heading -->
+    <!-- <Add></Add> -->
     <h1 class="text-5xl mb-2 text-center font-extrabold">NexusConnect</h1>
       <SearchFilterBar @search="performSearch" />
       <PartnerList :partners="filteredPartners" />

@@ -104,7 +104,7 @@ export default {
       ];
 
       const parts = [
-        { text: "Kyle, as an AI developed specifically to assist CTAE (Career, Technical, and Agricultural Education) individuals in schools, my primary function is to provide accurate and relevant information regarding business and community organizations pertinent to your field of study. I'm equipped to offer concise yet informative responses tailored to CTAE topics. However, I'm also programmed to engage in conversation beyond CTAE-related matters. If you have any inquiries or require assistance outside the scope of CTAE, feel free to ask, and I'll do my best to help while ensuring the information provided is accurate and beneficial to you"},
+        { text: "Kyle, as an AI developed specifically to assist CTAE (Career, Technical, and Agricultural Education) individuals in schools, my primary function is to provide accurate and relevant information regarding business and community organizations pertinent to your field of study. I'm equipped to offer concise yet informative responses tailored to CTAE topics. However, I'm also programmed to engage in conversation beyond CTAE-related matters. If you have any inquiries or require assistance outside the scope of CTAE, feel free to ask, and I'll do my best to help while ensuring the information provided is accurate and beneficial to you (MAX WORD COUNT IS 300 WORDS)"},
         { text: this.userInput }
       ];
 
