@@ -46,7 +46,18 @@
         </button>
         </li>
       </ul>
-
+      <div class="add-partner-form">
+      <h2>Add a Business</h2>
+      <input v-model="newPartner.name" placeholder="Name" />
+      <input v-model="newPartner.type" placeholder="Type" />
+      <input v-model="newPartner.description" placeholder="Description" />
+      <input v-model="newPartner.contact" placeholder="Contact" />
+      <input v-model="newPartner.latitude" placeholder="Latitude" />
+      <input v-model="newPartner.longitude" placeholder="Longitude" />
+      <input v-model="newPartner.link" placeholder="Website Link" />
+      <button @click="addPartner">Add Partner</button>
+    </div>
+      
       <div v-if="viewMode === 'grid'" class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           <!-- Card Blog -->
@@ -169,7 +180,16 @@ export default {
   data() {
     return {
       viewMode: 'grid',
-      maps: {} // Use an object to store individual maps
+      maps: {}, // Use an object to store individual maps
+      newPartner: {
+        name: '',
+        type: '',
+        description: '',
+        contact: '',
+        latitude: '',
+        longitude: '',
+        link: '',
+      }, // New partner model for the form
     };
   },
   computed: {
@@ -202,25 +222,25 @@ export default {
       }).then(() => this.initMaps());
     },
     initMaps() {
-      if (Object.keys(this.maps).length === 0) {
-        this.partners.forEach(partner => {
-          const mapElement = document.getElementById('map_' + partner.id);
-
-          const partnerMap = new google.maps.Map(mapElement, {
-            center: { lat: parseFloat(partner.latitude), lng: parseFloat(partner.longitude) },
-            zoom: 10
+      this.$nextTick(() => {
+        if (Object.keys(this.maps).length < this.partners.length) {
+          this.partners.forEach(partner => {
+            const mapElement = document.getElementById('map_' + partner.id);
+            if (mapElement && !this.maps[partner.id]) {
+              const partnerMap = new google.maps.Map(mapElement, {
+                center: { lat: parseFloat(partner.latitude), lng: parseFloat(partner.longitude) },
+                zoom: 10
+              });
+              new google.maps.Marker({
+                position: { lat: parseFloat(partner.latitude), lng: parseFloat(partner.longitude) },
+                map: partnerMap,
+                title: partner.name
+              });
+              this.$set(this.maps, partner.id, partnerMap);
+            }
           });
-
-          new google.maps.Marker({
-            position: { lat: parseFloat(partner.latitude), lng: parseFloat(partner.longitude) },
-            map: partnerMap,
-            title: partner.name
-          });
-
-          // Store the map in the maps object
-          this.$set(this.maps, partner.id, partnerMap);
-        });
-      }
+        }
+      });
     },
     exportPartner(partner) {
       const content = `
@@ -232,16 +252,12 @@ export default {
         Longitude: ${partner.longitude}
         Link: ${partner.link}
       `;
-
       if (typeof window !== 'undefined') {
-        // Only execute the export if in a client-side environment
         this.exportAsText(content, partner.name);
-        // this.exportAsPdf(content, partner.name);
       } else {
         console.warn('Export functionality skipped in non-client environment.');
       }
     },
-
     exportAsText(content, fileName) {
       const blob = new Blob([content], { type: 'text/plain' });
       const link = document.createElement('a');
@@ -249,26 +265,23 @@ export default {
       link.download = `${fileName}_info.txt`;
       link.click();
     },
-
-    async exportAsPdf(content, fileName) {
-      const pdfOptions = {
-        margin: 10,
-        filename: `${fileName}_info.pdf`,
-        image: { type: 'jpeg', quality: 0.98 },
-        html2canvas: { scale: 2 },
-        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
-      };
-
-      const pdf = await toPdf(content, pdfOptions);
-      const blob = new Blob([pdf], { type: 'application/pdf' });
-      const link = document.createElement('a');
-      link.href = window.URL.createObjectURL(blob);
-      link.download = pdfOptions.filename;
-      link.click();
+    addPartner() {
+      // Assuming an ID generation logic or API call to save the partner
+      const newId = Date.now(); // Placeholder for a unique ID
+      const partnerToAdd = { ...this.newPartner, id: newId };
+      this.partners.push(partnerToAdd);
+      this.newPartner = {
+        name: '',
+        type: '',
+        description: '',
+        contact: '',
+        latitude: '',
+        longitude: '',
+        link: '',
+      }; // Reset the form
     },
   }
 };
-
 </script>
 
 <style scoped>
