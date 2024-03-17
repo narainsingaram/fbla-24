@@ -178,32 +178,40 @@ export default {
     partners: Array
   },
   data() {
-    return {
-      viewMode: 'grid',
-      maps: {}, // Use an object to store individual maps
-      newPartner: {
-        name: '',
-        type: '',
-        description: '',
-        contact: '',
-        latitude: '',
-        longitude: '',
-        link: '',
-      }, // New partner model for the form
-    };
-  },
+  return {
+    viewMode: 'grid',
+    maps: {}, // Use an object to store individual maps
+    newPartner: {
+      name: '',
+      type: '',
+      description: '',
+      contact: '',
+      latitude: '',
+      longitude: '',
+      link: '',
+    }, // New partner model for the form
+    partners: [], // Initialize partners as an empty array
+  };
+},
   computed: {
     displayedPartners() {
       return this.partners;
     }
   },
   mounted() {
-    if (typeof window !== 'undefined') {
-      this.loadMapScript().catch(error => {
-        console.error('Error loading Google Maps API:', error);
-      });
+  if (typeof window !== 'undefined') {
+    this.loadMapScript().catch(error => {
+      console.error('Error loading Google Maps API:', error);
+    });
+
+    // Load partners from local storage if available
+    const storedPartners = localStorage.getItem('partners');
+    if (storedPartners) {
+      this.partners = JSON.parse(storedPartners);
     }
-  },
+  }
+},
+
   methods: {
     changeView(mode) {
       this.viewMode = mode;
@@ -266,20 +274,24 @@ export default {
       link.click();
     },
     addPartner() {
-      // Assuming an ID generation logic or API call to save the partner
-      const newId = Date.now(); // Placeholder for a unique ID
-      const partnerToAdd = { ...this.newPartner, id: newId };
-      this.partners.push(partnerToAdd);
-      this.newPartner = {
-        name: '',
-        type: '',
-        description: '',
-        contact: '',
-        latitude: '',
-        longitude: '',
-        link: '',
-      }; // Reset the form
-    },
+  // Assuming an ID generation logic or API call to save the partner
+  const newId = Date.now(); // Placeholder for a unique ID
+  const partnerToAdd = { ...this.newPartner, id: newId };
+  this.partners.push(partnerToAdd);
+  this.newPartner = {
+    name: '',
+    type: '',
+    description: '',
+    contact: '',
+    latitude: '',
+    longitude: '',
+    link: '',
+  }; // Reset the form
+
+  // Store updated partners array in local storage
+  localStorage.setItem('partners', JSON.stringify(this.partners));
+},
+
   }
 };
 </script>
